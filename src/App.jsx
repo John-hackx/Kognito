@@ -11,6 +11,7 @@ import DownloadsPage from "./Main_App/pages/DownloadsPage";
 import AccountPage from "./Main_App/pages/AccountPage";
 import PreferencesPage from "./Main_App/pages/PreferencesPage";
 import HelpPage from "./Main_App/pages/HelpPage";
+import ErrorPage from "./Main_App/pages/ErrorPage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="account" element={<AccountPage />} />
         <Route path="preferences" element={<PreferencesPage />} />
         <Route path="help" element={<HelpPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );

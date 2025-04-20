@@ -9,7 +9,7 @@
 
 .logo {
   flex: 0.2;
-  border-bottom: 0.8px solid #d9d9d9;
+  /* border-bottom: 0.8px solid #d9d9d9; */
   border-right: 0.8px solid #d9d9d9;
 }
 .logo img {
@@ -69,7 +69,7 @@
   width: 24px;
   height: 24px;
   color: rgba(0, 0, 0, 0.5);
-  left: 6.5%;
+  left: 9.8%;
   top: 36%;
   position: absolute;
 }
@@ -81,6 +81,7 @@
   border-radius: 28px;
   border: 0.8px solid #e3e3e3;
   outline: none;
+  margin-left: 20px;
 }
 
 .accountInfo {

@@ -9,9 +9,8 @@ import {upcomingClasses} from "../../assets/data/upcomingClassesData";
 import {recommendedCourses} from "../../assets/data/recommendedCoursesData";
 
 // Component imports
+import CourseProgressCard from "./CourseProgressCard"
 import ProgressBar from "./ProgressBar";
-import programmingImage from "../../assets/images/img 1.jpg"
-import machineLearningImage from "../../assets/images/img 2.jpg"
 
 
 function Main() {
@@ -44,7 +43,7 @@ function Main() {
             <h3>Course Progress</h3>
           </div>
           <div className={clsx(styles.courseProgressBody)}>
-            {courseProgress.map((course)=> <CourseProgressCard key={course.courseName} courseName={course.courseName} instructor={course.instructor} image={course.image} progress={course.progress} lessonsCompleted={course.lessonsCompleted} lessonsTotal={course.lessonsTotal} />)}
+            {courseProgress.map((course)=> <CourseProgressCard key={course.courseName} topRightPtext="instructor" BtnText="Continue Learning" courseName={course.courseName} instructor={course.instructor} image={course.image} progress={course.progress} lessonsCompleted={course.lessonsCompleted} lessonsTotal={course.lessonsTotal}>{course.lessonsCompleted} of {course.lessonsTotal} lessons completed</CourseProgressCard>)}
           </div>
         </div>
         <div className={clsx(styles.upcomingClasses)}>
@@ -52,7 +51,7 @@ function Main() {
             <h3>Upcoming Classes</h3>
           </div>
           <div className={clsx(styles.upcomingClassesBody)}>
-            {upcomingClasses.map((upClass) => <UpcomingClassesCard lessonTypeBgColor={upClass.lessonTypeBgColor} bgColor={upClass.bgColor} dateText={upClass.dateText} time={upClass.time} title={upClass.title} lessonType={upClass.lessonType} instructor={upClass.instructor} duration={upClass.duration} buttonText={upClass.buttonText} buttonLink={upClass.buttonLink} />)}
+            {upcomingClasses.map((upClass) => <UpcomingClassesCard key={upClass.title} lessonTypeBgColor={upClass.lessonTypeBgColor} bgColor={upClass.bgColor} dateText={upClass.dateText} time={upClass.time} title={upClass.title} lessonType={upClass.lessonType} instructor={upClass.instructor} duration={upClass.duration} buttonText={upClass.buttonText} buttonLink={upClass.buttonLink} />)}
             {/* <UpcomingClassesCard bgColor="#4F46E5" />
             <UpcomingClassesCard bgColor="#FB923C" />
             <UpcomingClassesCard bgColor="#22C55E" />
@@ -190,33 +189,33 @@ function HeroCard({bgColor}){
 
 
 
-function CourseProgressCard({courseName, instructor, image, progress, lessonsCompleted, lessonsTotal}) {
-  const progressBarStyles = {width: `${progress}%`, maximumWidth: `${progress}%`}
-  return (
-    <div className={clsx(styles.progressCard)}>
-      <div className={styles.progressTop}>
-        <div className={clsx(styles.progressTopLeft)}>
-          <div className={styles.progressImage}>
-            <img src={image} alt="Course" />
-          </div>
-        </div>
-        <div className={clsx(styles.progressTopRight)}>
-          <h4>{courseName}</h4>
-          <p>Instructor: {instructor}</p>
-          <div className={clsx(styles.progressBars)}>
-            <span className={clsx(styles.emptyProgressBar)}></span>
-            <span style={progressBarStyles} className={clsx(styles.filledProgressBar)}></span>
-          </div>
-          <p className={clsx(styles.progressText)}>{progress}%</p>
-        </div>
-      </div>
-      <div className={styles.progressBottom}>
-        <p>{lessonsCompleted} of {lessonsTotal} lessons completed</p>
-        <button>Continue Learning</button>
-      </div>
-    </div>
-  )
-}
+// function CourseProgressCard({courseName, instructor, image, progress, lessonsCompleted, lessonsTotal}) {
+//   const progressBarStyles = {width: `${progress}%`, maximumWidth: `${progress}%`}
+//   return (
+//     <div className={clsx(styles.progressCard)}>
+//       <div className={styles.progressTop}>
+//         <div className={clsx(styles.progressTopLeft)}>
+//           <div className={styles.progressImage}>
+//             <img src={image} alt="Course" />
+//           </div>
+//         </div>
+//         <div className={clsx(styles.progressTopRight)}>
+//           <h4>{courseName}</h4>
+//           <p>Instructor: {instructor}</p>
+//           <div className={clsx(styles.progressBars)}>
+//             <span className={clsx(styles.emptyProgressBar)}></span>
+//             <span style={progressBarStyles} className={clsx(styles.filledProgressBar)}></span>
+//           </div>
+//           <p className={clsx(styles.progressText)}>{progress}%</p>
+//         </div>
+//       </div>
+//       <div className={styles.progressBottom}>
+//         <p>{lessonsCompleted} of {lessonsTotal} lessons completed</p>
+//         <button>Continue Learning</button>
+//       </div>
+//     </div>
+//   )
+// }
 
 
 function UpcomingClassesCard({bgColor, lessonTypeBgColor, dateText, time, title, lessonType, instructor, duration, buttonText, buttonLink}) {

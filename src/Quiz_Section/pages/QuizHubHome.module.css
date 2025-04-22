@@ -1,0 +1,48 @@
+.active{
+    border-radius: 7px;
+    padding: 5px;
+    color: #ffffff!important;
+    background-color: #29696E
+}
+
+
+.goBackLink{
+    display: flex;
+    align-items: center;
+    flex: 0.3;
+}
+
+.goBack{
+    display: flex;
+    align-items: center;
+}
+.goBack svg{
+    width: 20px;
+    height: 20px;
+}
+.goBack p{
+    font-size: 14px;
+    margin-left: 10px;
+    color: #374151;
+}
+
+.navlinks {
+    flex: 0.7;
+    /* padding: 0 20px; */
+    /* border: 1px solid green; */
+    display: flex;
+    align-items: center;
+}
+.navlinks ul{
+    display: flex;
+    gap: 20px;
+    margin-left: 10%;
+}
+.navlinks ul li{
+    list-style: none;
+}
+.navlinks ul li a{
+    text-decoration: none;
+    color: #374151;
+    font-size: 15px;
+}

@@ -1,9 +1,7 @@
+// import { QuizHubDashboardHeader } from "./QuizHubHome";
+
 function TutorConsultPage() {
-    return (
-        <div>
-            consult tutors page
-        </div>
-    )
+  return <>{/* <QuizHubDashboardHeader /> */}</>;
 }
 
-export default TutorConsultPage
+export default TutorConsultPage;

@@ -1,9 +1,11 @@
+import QuizzesMain from "../components/QuizzesMain";
+
 function QuizzesPage() {
-    return (
-        <div>
-            quizzes
-        </div>
-    )
+  return (
+    <>
+      <QuizzesMain />
+    </>
+  );
 }
 
-export default QuizzesPage
+export default QuizzesPage;

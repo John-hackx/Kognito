@@ -1,0 +1,109 @@
+.quizzesMain {
+  /* border: 1px solid red; */
+  height: 170vh;
+  background-color: #f9f9f9;
+  padding-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.subMain {
+  /* border: 1px solid blue; */
+  height: 100%;
+  display: flex;
+  gap: 30px;
+}
+
+.subMainLeft {
+  border-radius: 13px;
+  flex: 0.24;
+  background-color: #ffffff;
+  padding: 20px;
+  position: relative;
+}
+.subMainLeft h3 {
+  font-weight: 600;
+  font-size: 18px;
+}
+.searchTitle {
+  font-size: 15px;
+  color: #374151;
+  margin-top: 20px;
+}
+.subMainLeft svg {
+  position: absolute;
+  color: #686b72;
+  z-index: 1;
+  margin-top: 16px;
+  margin-left: 10px;
+}
+.subMainLeft input {
+  height: 34px;
+  outline: none;
+  border: 0.8px solid #e3e3e3;
+  border-radius: 13px;
+  width: 87%;
+  padding-left: 40px;
+  margin-top: 10px;
+}
+
+.filterTypeBox {
+  margin-top: 20px;
+}
+.filterList {
+  margin-top: 10px;
+}
+.filterList label {
+  display: flex;
+  /* border: 1px solid red; */
+  width: 60%;
+  font-size: 15px;
+  align-items: center;
+}
+.filterList label:hover {
+  cursor: pointer;
+}
+.filterList input {
+  width: 18px;
+  height: 18px;
+}
+.filterItemText {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.subMainRight {
+  border: 0.8px solid #e7e7e7;
+  border-radius: 13px;
+  background-color: #ffffff;
+  flex: 0.76;
+  padding: 20px;
+}
+.subMainRight h4 {
+  font-size: 22px;
+}
+.selectedFiltersContainer {
+  /* border: 1px solid red; */
+  height: 30px;
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+}
+.selectedFilter {
+  display: flex;
+  align-items: center;
+}
+.selectedFilter svg {
+  width: 16px;
+  height: 16px;
+  margin-top: 5px;
+}
+.availableQuizContainer {
+  /* border: 1px solid red; */
+  height: 80%;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 30px;
+}

@@ -3,7 +3,7 @@ a {
 }
 .main {
   display: flex;
-  height: 300vh;
+  height: 270vh;
   /* width: 100%; */
   /* border: 1px solid red; */
 }
@@ -45,21 +45,21 @@ a {
   flex-direction: column;
 }
 
-.welcomeHero{
+.welcomeHero {
   /* margin-top: 10px; */
   padding: 20px;
   /* border: 1px solid red; */
 }
-.welcomeHeader h3{
+.welcomeHeader h3 {
   font-size: 24px;
   font-weight: 800;
 }
-.welcomeHeader p{
+.welcomeHeader p {
   font-size: 15px;
   color: #374151;
   margin-top: 8px;
 }
-.welcomeContent{
+.welcomeContent {
   /* border: 1px solid green; */
   height: 140px;
   margin-top: 20px;
@@ -68,13 +68,13 @@ a {
   gap: 20px;
   align-items: center;
 }
-.heroCard{
+.heroCard {
   /* border: 1px solid gray; */
   height: 126px;
   flex-grow: 1;
   border-radius: 13px;
 }
-.courseProgress{
+.courseProgress {
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -82,16 +82,16 @@ a {
   /* border: 1px solid purple; */
 }
 
-.courseProgressHeader{
+.courseProgressHeader {
   /* border: 1px solid red; */
   flex: 0.1;
 }
 
-.courseProgressHeader h3{
+.courseProgressHeader h3 {
   font-size: 18px;
 }
 
-.courseProgressBody{
+.courseProgressBody {
   /* border: 1px solid green; */
   flex: 0.9;
   display: grid;
@@ -101,9 +101,7 @@ a {
   margin-top: 30px;
 }
 
-
-
-.upcomingClasses{
+.upcomingClasses {
   /* border: 1px solid red; */
   height: 210px;
   padding: 20px;
@@ -111,30 +109,30 @@ a {
   flex-direction: column;
   margin-top: 5px;
 }
-.upcomingClassesHeader{
+.upcomingClassesHeader {
   /* border: 1px solid green; */
   flex: 0.2;
 }
-.upcomingClassesHeader h3{
+.upcomingClassesHeader h3 {
   font-size: 17px;
 }
 
-.upcomingClassesBody{
+.upcomingClassesBody {
   flex: 0.8;
   /* border: 1px solid brown; */
   display: flex;
   gap: 20px;
 }
 
-.upcomingClassesCard{
+.upcomingClassesCard {
   position: relative;
   /* width: 255px; */
   flex-grow: 1;
   border-radius: 13px;
 }
-.upcomingClassesSubCard{
+.upcomingClassesSubCard {
   border-radius: 13px;
-  border: 0.8px solid #D9D9D9;
+  border: 0.8px solid #d9d9d9;
   background-color: #ffffff;
   position: absolute;
   width: 98%;
@@ -143,7 +141,7 @@ a {
   right: 0;
 }
 
-.classesTitle{
+.classesTitle {
   /* border: 1px solid red; */
   height: 40px;
   width: 90%;
@@ -151,12 +149,12 @@ a {
   display: flex;
   position: relative;
 }
-.classesTime{
+.classesTime {
   margin-top: 8px;
   font-weight: 600;
   font-size: 16px;
 }
-.classesType{
+.classesType {
   margin-top: 8px;
   font-size: 12px;
   /* width: 60px; */
@@ -169,15 +167,15 @@ a {
   right: 0;
   position: absolute;
 }
-.classesDuration{
+.classesDuration {
   font-size: 13px;
   color: #374151;
   margin: 0 auto;
   width: 90%;
-  margin-top: -5px
+  margin-top: -5px;
 }
 
-.classesSubject{
+.classesSubject {
   margin-top: 8px;
   font-weight: 600;
   font-size: 16px;
@@ -185,56 +183,55 @@ a {
   width: 90%;
   margin-top: 20px;
 }
-.classesTutor{
+.classesTutor {
   font-size: 13px;
   color: #374151;
   margin: 0 auto;
   width: 90%;
-  margin-top: 5px
+  margin-top: 5px;
 }
 
-.classesJoinButton{
+.classesJoinButton {
   width: 90%;
   margin-left: 13px;
   margin-top: 10px;
   border-radius: 5px;
   font-size: 14px;
-  background-color: #4F46E5;
+  background-color: #4f46e5;
   color: #ffffff;
   height: 35px;
-
 }
 
-.bottomSection{
+.bottomSection {
   /* border: 1px solid red; */
   height: 530px;
-  margin-top: 40px!important;
+  margin-top: 40px !important;
   width: 96%;
   margin: 0 auto;
   display: flex;
   gap: 30px;
 }
 
-.statisticsContainer{
+.statisticsContainer {
   flex: 0.4;
-  border: 0.8px solid #D9D9D9;
+  border: 0.8px solid #d9d9d9;
   border-radius: 17px;
   width: 100%;
 }
 
-.recommendedContainer{
+.recommendedContainer {
   flex: 0.6;
-  border: 0.8px solid #D9D9D9;
+  border: 0.8px solid #d9d9d9;
   border-radius: 17px;
 }
 
-.statsHeader h4{
+.statsHeader h4 {
   margin-top: 20px;
   padding-left: 25px;
   padding-right: 25px;
   font-size: 20px;
 }
-.weeklyStudy{
+.weeklyStudy {
   display: flex;
   padding-left: 25px;
   padding-right: 25px;
@@ -242,26 +239,25 @@ a {
   margin-top: 15px;
   /* border: 1px solid red; */
 }
-.weeklyStudy p{
-  color: #44415D;
+.weeklyStudy p {
+  color: #44415d;
   font-size: 16px;
 }
-.weeklyStudy span{
-  color: #44415D;
+.weeklyStudy span {
+  color: #44415d;
   font-size: 16px;
   right: 25px;
   position: absolute;
   /* border: 1px solid green; */
 }
 
-.statsGraph{
+.statsGraph {
   border: 1px solid red;
   height: 50%;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
-
-.statsAverage{
+.statsAverage {
   /* border: 1px solid purple; */
   margin-top: 20px;
   display: flex;
@@ -269,18 +265,18 @@ a {
   padding-right: 25px;
   position: relative;
 }
-.statsAverage p{
-  color: #44415D;
+.statsAverage p {
+  color: #44415d;
   font-size: 16px;
 }
-.statsAverage span{
-  color: #A855F7;
+.statsAverage span {
+  color: #a855f7;
   font-size: 14px;
   right: 25px;
   position: absolute;
 }
 
-.statsProgress{
+.statsProgress {
   /* border: 1px solid red; */
   margin-top: 20px;
   display: flex;
@@ -289,15 +285,15 @@ a {
   position: relative;
 }
 
-.learningStreakText{
-  color: #44415D;
+.learningStreakText {
+  color: #44415d;
   font-size: 16px;
   padding-left: 25px;
   padding-right: 25px;
   margin-top: 15px;
 }
 
-.daysContainer{
+.daysContainer {
   display: flex;
   /* border: 1px solid red; */
   width: 100%;
@@ -305,10 +301,10 @@ a {
   padding-right: 25px;
   gap: 5px;
 }
-.day{
+.day {
   width: 21px;
   height: 32px;
-  background-color: #4F46E5;
+  background-color: #4f46e5;
   border-radius: 9px;
   display: flex;
   align-items: center;
@@ -316,22 +312,22 @@ a {
   flex: 0.1;
   margin-top: 10px;
 }
-.day p{
+.day p {
   color: #ffffff;
   text-align: center;
 }
 
-.recommendedHeader{
+.recommendedHeader {
   margin-top: 15px;
   padding-left: 25px;
   padding-right: 25px;
   font-size: 20px;
 }
-.recommendedHeader h4{
+.recommendedHeader h4 {
   font-size: 20px;
 }
 
-.recommendedCardsContainer{
+.recommendedCardsContainer {
   padding-left: 25px;
   padding-right: 25px;
   /* border: 1px solid red; */
@@ -340,21 +336,21 @@ a {
   height: 84%;
   margin-top: 20px;
 }
-.recommendedCard{
-  border: 0.8px solid #D9D9D9;
+.recommendedCard {
+  border: 0.8px solid #d9d9d9;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   border-radius: 17px;
 }
 
-.recommendedCardImage{
+.recommendedCardImage {
   /* border: 1px solid red; */
   flex: 0.4;
   border-top-right-radius: 17px;
   border-top-left-radius: 17px;
 }
-.recommendedCardImage img{
+.recommendedCardImage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -362,14 +358,14 @@ a {
   border-top-left-radius: 17px;
 }
 
-.recommendedCardTitle{
+.recommendedCardTitle {
   flex: 0.2;
   /* border: 1px solid green; */
   padding-left: 15px;
   padding-right: 15px;
   display: flex;
 }
-.recommendedCardTitle h4{
+.recommendedCardTitle h4 {
   /* border: 1px solid red; */
   width: 80%;
   /* height: 100%; */
@@ -379,7 +375,7 @@ a {
   line-height: 25px;
   padding-top: 10px;
 }
-.recommendedCardTitle span{
+.recommendedCardTitle span {
   /* border: 1px solid blue; */
   padding-top: 20px;
   width: 20%;
@@ -390,18 +386,17 @@ a {
   font-size: 13px;
   color: #374151;
 }
-.recommendedCardTitle span svg{
+.recommendedCardTitle span svg {
   width: 15px;
   height: 15px;
   margin-right: 5px;
 }
 
-
-.recommendedCardDescription{
+.recommendedCardDescription {
   flex: 0.1;
   /* border: 1px solid blue; */
 }
-.recommendedCardDescription p{
+.recommendedCardDescription p {
   font-size: 14px;
   color: #374151;
   padding-left: 15px;
@@ -409,7 +404,7 @@ a {
   /* margin-top: 10px; */
 }
 
-.recommendedCardTime{
+.recommendedCardTime {
   flex: 0.1;
   /* border: 1px solid purple; */
   display: flex;
@@ -418,42 +413,41 @@ a {
   position: relative;
   padding-top: 20px;
 }
-.time{
+.time {
   display: flex;
 }
-.time svg{
+.time svg {
   width: 16px;
   height: 16px;
   margin-right: 5px;
 }
-.time p{
+.time p {
   font-size: 13px;
   color: #9196a0;
 }
-.level{
+.level {
   right: 15px;
   position: absolute;
 }
-.level p{
+.level p {
   font-size: 13px;
-  color: #8469D8;
-  background-color: #DBEAFE;
+  color: #8469d8;
+  background-color: #dbeafe;
   padding: 5px;
   border-radius: 8px;
 }
 
-.recommendedCardButton{
+.recommendedCardButton {
   flex: 0.2;
   /* border: 1px solid yellow; */
 }
-.recommendedCardButton button{
+.recommendedCardButton button {
   width: 90%;
   margin-left: 5%;
   margin-top: 10px;
   border-radius: 5px;
   font-size: 14px;
-  background-color: #4F46E5;
+  background-color: #4f46e5;
   color: #ffffff;
   height: 35px;
 }
-

@@ -1,0 +1,136 @@
+.quizDetailsPage {
+  display: flex;
+  flex-direction: column;
+  height: 88.5vh;
+}
+
+.quizDetailsMain {
+  background-color: #eef4ff;
+  flex: 0.85;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.subContainer {
+  /* border: 1px solid red; */
+  height: 85%;
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}
+.subContainerLeft {
+  background-color: #ffffff;
+  border-radius: 13px;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex: 0.6;
+}
+.quizInformationTitle {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.flashCardsContainer {
+  /* border: 1px solid red; */
+  /* width: 95%; */
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  /* gap: 10px; */
+  height: 130px;
+}
+
+.detailsContainer {
+  height: 140px;
+  border-top: 0.8px solid #d9d9d9;
+  margin-top: 30px;
+  display: flex;
+  padding-top: 30px;
+  flex-direction: column;
+  gap: 15px;
+}
+.detailsItem {
+  display: flex;
+}
+.detailsItem span {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.detailsItem p {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.9);
+  margin-left: 10px;
+}
+
+.subContainerRight {
+  background-color: #ffffff;
+  border-radius: 13px;
+  flex: 0.4;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.instructionsTitle {
+  font-size: 18px;
+  margin-top: 20px;
+}
+.instructionsContainer {
+  /* border: 1px solid red; */
+  height: 78%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.instructionItem {
+  display: flex;
+}
+.instructionItem svg {
+  flex: 0.1;
+}
+.instructionItem p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+  /* margin-left: 5px; */
+  flex: 0.9;
+}
+
+.quizDetailsFooter {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  flex: 0.15;
+  padding-left: 100px;
+  padding-right: 100px;
+  justify-content: space-between;
+}
+.backBtn {
+  height: 50px;
+  width: 180px;
+  font-size: 17px;
+  border-radius: 10px;
+  border: 0.8px solid #ccc;
+  background: transparent;
+}
+.backBtn:hover {
+  cursor: pointer;
+  box-shadow: rgba(1, 104, 104, 0.35) 0px 5px 15px;
+  transition: all 0.3s ease-in;
+  color: #29696e;
+}
+.startQuizBtn {
+  height: 50px;
+  width: 180px;
+  font-size: 17px;
+  border-radius: 10px;
+  background-color: #29696e;
+  color: #ffffff;
+}
+.startQuizBtn:hover {
+  cursor: pointer;
+  box-shadow: rgba(1, 104, 104, 0.35) 0px 5px 15px;
+  background: transparent;
+  color: #29696e;
+  border: 0.8px solid #29696e;
+  transition: all 0.3s ease-in;
+}

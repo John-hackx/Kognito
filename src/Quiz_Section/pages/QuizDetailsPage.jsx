@@ -6,7 +6,7 @@ import { QuizzesContext } from "../components/QuizzesContext";
 import { useLocation } from "react-router-dom";
 
 function QuizDetailsPage() {
-  const { state, dispatch } = useContext(QuizzesContext);
+  const { dispatch } = useContext(QuizzesContext);
   const location = useLocation();
 
   const handleStartQuiz = () => {

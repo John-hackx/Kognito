@@ -1,6 +1,6 @@
 .takeQuizMain {
   height: 88vh;
-  background-image: url("../../assets/images/bg 1.jpg");
+  background-image: url("/images/bkgImage.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

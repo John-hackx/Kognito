@@ -18,38 +18,51 @@ import TutorConsultPage from "./Quiz_Section/pages/TutorConsultPage";
 import QuizHubDashboard from "./Quiz_Section/pages/QuizHubDashboard";
 import TakeQuizPage from "./Quiz_Section/pages/TakeQuizPage";
 import FinishQuiz from "./Quiz_Section/pages/FinishQuiz";
-// import { useEffect, useReducer } from "react";
+import QuizReviewPage from "./Quiz_Section/pages/QuizReviewPage";
+import { WindowSizeContext } from "./Main_App/components/WindowSizeContext";
+import { useEffect, useState } from "react";
 
 function App() {
-  // console.log(quizzes);
+  const [windowWidth, setWindowWidth] = useState(() => window.innerWidth);
+
+  useEffect(function () {
+    const getWindowWidth = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", getWindowWidth);
+
+    return () => window.removeEventListener("resize", getWindowWidth);
+  }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<DashboardPage />} />
-        <Route path="courses" element={<CoursesPage />} />
-        <Route path="calender" element={<CalenderPage />} />
-        <Route path="messages" element={<MessagesPage />} />
+    <WindowSizeContext.Provider value={{ windowWidth }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<DashboardPage />} />
+          <Route path="courses" element={<CoursesPage />} />
+          <Route path="calender" element={<CalenderPage />} />
+          <Route path="messages" element={<MessagesPage />} />
 
-        <Route path="quizhub" element={<QuizHubDashboard />}>
-          <Route index element={<Navigate to="home" replace />} />
-          <Route path="home" element={<QuizHubHome />} />
-          <Route path="quizzes" element={<QuizzesPage />} />
-          <Route path="quizzes/:id" element={<TakeQuizPage />} />
-          <Route path="quizzes/takequiz/finished" element={<FinishQuiz />} />
-          <Route path="practice" element={<PracticePage />} />
-          <Route path="tutors" element={<TutorConsultPage />} />
-        </Route>
-        <Route path="practicetest" element={<PracticeTestPage />} />
-        <Route path="bookmarks" element={<BookmarksPage />} />
-        <Route path="certificates" element={<CertificatesPage />} />
-        <Route path="downloads" element={<DownloadsPage />} />
-        <Route path="account" element={<AccountPage />} />
-        <Route path="preferences" element={<PreferencesPage />} />
-        <Route path="help" element={<HelpPage />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="quizhub" element={<QuizHubDashboard />}>
+            <Route index element={<Navigate to="home" replace />} />
+            <Route path="home" element={<QuizHubHome />} />
+            <Route path="quizzes" element={<QuizzesPage />} />
+            <Route path="quizzes/:id" element={<TakeQuizPage />} />
+            <Route path="quizzes/:id/quizreview" element={<QuizReviewPage />} />
+            <Route path="practice" element={<PracticePage />} />
+            <Route path="tutors" element={<TutorConsultPage />} />
+          </Route>
+          <Route path="practicetest" element={<PracticeTestPage />} />
+          <Route path="bookmarks" element={<BookmarksPage />} />
+          <Route path="certificates" element={<CertificatesPage />} />
+          <Route path="downloads" element={<DownloadsPage />} />
+          <Route path="account" element={<AccountPage />} />
+          <Route path="preferences" element={<PreferencesPage />} />
+          <Route path="help" element={<HelpPage />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </BrowserRouter>
+    </WindowSizeContext.Provider>
   );
 }
 

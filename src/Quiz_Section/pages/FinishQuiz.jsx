@@ -2,15 +2,20 @@ import styles from "./FinishQuiz.module.css";
 import clsx from "clsx";
 import { QuizzesContext } from "../components/QuizzesContext";
 import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function FinishQuiz() {
   const { state } = useContext(QuizzesContext);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const currentQuiz = state.quizzes.find((quiz) => quiz.id === id);
   const mins = Math.floor(state.timeSpent / 60);
   const secs = state.timeSpent % 60;
+
+  const handleViewSolutionsBtn = () => {
+    navigate("quizreview");
+  };
 
   return (
     <div className={clsx(styles.finishQuizContainer)}>
@@ -102,7 +107,10 @@ function FinishQuiz() {
             />
           </div>
           <div className={styles.finishCardButtons}>
-            <button className={clsx(styles.viewSolutionsBtn)}>
+            <button
+              onClick={handleViewSolutionsBtn}
+              className={clsx(styles.viewSolutionsBtn)}
+            >
               <span>
                 <svg
                   width="24"

@@ -5,12 +5,13 @@ import { useParams } from "react-router-dom";
 // import MathRenderer from "../../Quiz_Section/components/MathRenderer";
 import InlineMath from "@matejmazur/react-katex";
 import BlockMath from "@matejmazur/react-katex";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { QuizzesContext } from "./QuizzesContext";
 import { numberToAlphabet } from "../../assets/reuseable functions/numberToAlphabet";
 
 function TakeQuizMain() {
   const { state, dispatch } = useContext(QuizzesContext);
+  const [flagged, setFlagged] = useState(false);
 
   // const navigate = useNavigate();
   const { id } = useParams();
@@ -18,7 +19,11 @@ function TakeQuizMain() {
   const isMath = currentQuiz.title === "Mathematics";
   const hasAnswered = state.selectedAnswer;
 
-  // const location = useLocation();
+  // handle functions;
+  const handleFlagged = (e) => {
+    setFlagged(e.target.checked);
+  };
+
   const handleSubmitQuiz = () => {
     dispatch({ type: "submitQuiz" });
   };
@@ -29,7 +34,7 @@ function TakeQuizMain() {
 
   const handleNextBtn = () => {
     dispatch({ type: "next", payload: currentQuiz });
-    console.log(state.index);
+    setFlagged(false);
   };
 
   const handlePreviousBtn = () => {
@@ -52,6 +57,22 @@ function TakeQuizMain() {
       return () => clearInterval(id);
     },
     [dispatch]
+  );
+
+  useEffect(
+    function () {
+      flagged &&
+        dispatch({
+          type: "flagged",
+          payload: currentQuiz.questions[state.index],
+        });
+      !flagged &&
+        dispatch({
+          type: "unflagged",
+          payload: currentQuiz.questions[state.index],
+        });
+    },
+    [flagged, dispatch, currentQuiz, state.index]
   );
 
   const questionSvg = (
@@ -163,6 +184,8 @@ function TakeQuizMain() {
               )}
               {!isMath && (
                 <QuizBox
+                  handleFlagged={handleFlagged}
+                  flagged={flagged}
                   handleSelectedAnswer={handleSelectedAnswer}
                   state={state}
                   currentQuiz={currentQuiz}
@@ -245,8 +268,15 @@ function TakeQuizMain() {
                 <p>Flagged Questions</p>
               </div>
               <div className={clsx(styles.flagBody)}>
-                {Array.from({ length: 10 }).map((_, index) => (
-                  <RoundQuestionNumber key={index} numb={index + 1} />
+                {state.flaggedQuestions?.map((_, index) => (
+                  <RoundQuestionNumber
+                    key={index}
+                    numb={
+                      currentQuiz.questions.indexOf(
+                        currentQuiz.questions[state.index]
+                      ) + 1
+                    }
+                  />
                 ))}
               </div>
             </div>
@@ -277,7 +307,13 @@ function RoundQuestionNumber({ numb }) {
   );
 }
 
-function QuizBox({ handleSelectedAnswer, currentQuiz, state }) {
+function QuizBox({
+  handleSelectedAnswer,
+  currentQuiz,
+  state,
+  flagged,
+  handleFlagged,
+}) {
   return (
     <div className={styles.quizBox}>
       <div className={styles.quizBoxTop}>
@@ -287,7 +323,7 @@ function QuizBox({ handleSelectedAnswer, currentQuiz, state }) {
         </div>
         <div className={styles.flagQuestion}>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={handleFlagged} checked={flagged} />
             <span>Flag for review</span>
           </label>
         </div>
@@ -351,7 +387,7 @@ function QuizBoxMaths({ handleSelectedAnswer, currentQuiz, state }) {
   );
 }
 
-function AnswerOptionMath({
+export function AnswerOptionMath({
   state,
   handleSelectedAnswer,
   optionLetter,
@@ -375,7 +411,7 @@ function AnswerOptionMath({
   );
 }
 
-function AnswerOption({
+export function AnswerOption({
   state,
   handleSelectedAnswer,
   optionLetter,

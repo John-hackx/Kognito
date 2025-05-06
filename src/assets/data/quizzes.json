@@ -1,7 +1,7 @@
 {
   "quizzes": [
     {
-      "image": "/public/images/dataScience.jpg",
+      "image": "/images/dataScience.jpg",
       "title": "Physics",
       "level": "Intermediate",
       "time": "25",
@@ -232,7 +232,7 @@
       "attempts": 100
     },
     {
-      "image": "/public/images/img2.jpg",
+      "image": "/images/img2.jpg",
       "title": "Chemistry",
       "level": "Beginner",
       "time": "30",
@@ -433,7 +433,7 @@
       "attempts": 80
     },
     {
-      "image": "/public/images/img3.jpg",
+      "image": "/images/img3.jpg",
       "title": "Mathematics",
       "level": "Advanced",
       "time": "45",
@@ -694,7 +694,7 @@
       "attempts": 120
     },
     {
-      "image": "/public/images/digitalMarketing.jpg",
+      "image": "/images/digitalMarketing.jpg",
       "title": "Basic Computing",
       "level": "Beginner",
       "time": "60",
@@ -970,7 +970,7 @@
       "attempts": 90
     },
     {
-      "image": "/public/images/img3.jpg",
+      "image": "/images/img3.jpg",
       "title": "Mathematics",
       "level": "Beginner",
       "time": "45",
@@ -1221,7 +1221,7 @@
       "attempts": 120
     },
     {
-      "image": "/public/images/img2.jpg",
+      "image": "/images/img2.jpg",
       "title": "Information Tech",
       "level": "Advanced",
       "time": "60",

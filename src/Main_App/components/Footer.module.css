@@ -101,6 +101,9 @@
   color: #9ca3af;
   margin-top: 35px;
 }
+.inputSection {
+  display: flex;
+}
 .footerTopFourth input {
   margin-top: 20px;
   height: 23px;
@@ -115,9 +118,9 @@
   background-color: #26696f;
   color: #ffffff;
   padding: 5px;
-  margin-bottom: 3px;
+  margin-top: 20px;
   font-size: 15px;
-  width: 74px;
+  width: 70px;
   border-top-right-radius: 13px;
   border-bottom-right-radius: 13px;
 }

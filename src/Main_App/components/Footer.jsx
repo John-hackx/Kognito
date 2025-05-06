@@ -62,8 +62,10 @@ function Footer({ footerStyles }) {
         <div className={styles.footerTopFourth}>
           <h3>Subscribe</h3>
           <p>Stay updated with our latest quizzes and features.</p>
-          <input type="text" placeholder="Your Email" id="email" />
-          <button>Join In</button>
+          <div className={clsx(styles.inputSection)}>
+            <input type="text" placeholder="Your Email" id="email" />
+            <button>Join In</button>
+          </div>
         </div>
       </div>
       <div className={styles.footerBottom}>

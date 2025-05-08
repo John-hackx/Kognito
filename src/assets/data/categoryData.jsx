@@ -54,7 +54,7 @@ export const categories = [
           </svg>
         ),
         text: "Calendar",
-        link: "/calender",
+        link: "/calendar",
       },
       {
         svg: (

@@ -6,11 +6,12 @@ import Main from "../components/Main";
 import styles from "./DashboardPage.module.css";
 import clsx from "clsx";
 import { WindowSizeContext } from "../components/WindowSizeContext";
+import MobileFooter from "../components/MobileFooter";
 
 function DashboardPage() {
   const { windowWidth } = useContext(WindowSizeContext);
 
-  console.log(windowWidth);
+  const mobileView = windowWidth <= 500;
 
   const logoStyle = {
     borderRight: "0.8px solid #d9d9d9",
@@ -48,7 +49,7 @@ function DashboardPage() {
         )}
       </Header>
       <Main />
-      <Footer />
+      {!mobileView ? <Footer /> : <MobileFooter />}
     </>
   );
 }

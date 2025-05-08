@@ -5,6 +5,7 @@ import Header from "../../Main_App/components/Header";
 import { Link, NavLink } from "react-router-dom";
 import { useReducer, useEffect } from "react";
 import { QuizzesContext } from "../components/QuizzesContext";
+import { availableQuizzes } from "../../assets/data/availableQuizData";
 
 const initialState = {
   quizzes: [],
@@ -122,43 +123,51 @@ function QuizHubDashboard() {
   const isQuizReviewPage =
     location.pathname === `/quizhub/quizzes/${id}/quizreview`;
 
-  useEffect(function () {
-    const controller = new AbortController();
-    async function fetchQuizzes() {
-      try {
-        const res = await fetch("http://localhost:9000/quizzes", {
-          signal: controller.signal,
-        });
-        if (!res.ok) throw new Error("Failed to fetch");
-        const data = await res.json();
-        const availableQuizzes = data.map((quiz) => {
-          return {
-            ...quiz,
-            levelStyles: {
-              backgroundColor:
-                quiz.level === "Beginner"
-                  ? "#E0F7FA"
-                  : quiz.level === "Intermediate"
-                  ? "#FFF3E0"
-                  : "#FCE4EC",
-              color:
-                quiz.level === "Beginner"
-                  ? "#00796B"
-                  : quiz.level === "Intermediate"
-                  ? "#FF6F00"
-                  : "#880E4F",
-            },
-          };
-        });
-        dispatch({ type: "received", payload: availableQuizzes });
-        // console.log(availableQuizzes);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    fetchQuizzes();
+  //original fetching when app is ready with backend
 
-    if (controller) return () => controller.abort();
+  // useEffect(function () {
+  //   const controller = new AbortController();
+  //   async function fetchQuizzes() {
+  //     try {
+  //       const res = await fetch("http://localhost:9000/quizzes", {
+  //         signal: controller.signal,
+  //       });
+  //       if (!res.ok) throw new Error("Failed to fetch");
+  //       const data = await res.json();
+  //       const availableQuizzes = data.map((quiz) => {
+  //         return {
+  //           ...quiz,
+  //           levelStyles: {
+  //             backgroundColor:
+  //               quiz.level === "Beginner"
+  //                 ? "#E0F7FA"
+  //                 : quiz.level === "Intermediate"
+  //                 ? "#FFF3E0"
+  //                 : "#FCE4EC",
+  //             color:
+  //               quiz.level === "Beginner"
+  //                 ? "#00796B"
+  //                 : quiz.level === "Intermediate"
+  //                 ? "#FF6F00"
+  //                 : "#880E4F",
+  //           },
+  //         };
+  //       });
+  //       dispatch({ type: "received", payload: availableQuizzes });
+  //       // console.log(availableQuizzes);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  //   fetchQuizzes();
+
+  //   if (controller) return () => controller.abort();
+  // }, []);
+
+  //temporary fetching shit
+
+  useEffect(function () {
+    dispatch({ type: "received", payload: availableQuizzes });
   }, []);
 
   const middleChildrenStyle = { border: "none" };

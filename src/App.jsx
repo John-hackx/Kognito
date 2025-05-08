@@ -40,7 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="courses" element={<CoursesPage />} />
-          <Route path="calender" element={<CalenderPage />} />
+          <Route path="calendar" element={<CalenderPage />} />
           <Route path="messages" element={<MessagesPage />} />
 
           <Route path="quizhub" element={<QuizHubDashboard />}>

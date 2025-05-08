@@ -1,15 +1,48 @@
-import React from "react";
-import InlineMath from "@matejmazur/react-katex";
-import BlockMath from "@matejmazur/react-katex";
+import React, { useEffect, useState } from "react";
+import image1 from "../../assets/images/dataScience.jpg";
+import image2 from "../../assets/images/digitalMarketing.jpg";
+import image3 from "../../assets/images/img 2.jpg";
+import image4 from "../../assets/images/img 3.jpg";
+// import { useSwipeable } from "react-swipeable";
 
 function PracticePage() {
-  return (
-    <div>
-      {/* Inline equation (e.g., $E=mc^2$) */}
-      <InlineMath math="E = mc^2" />
+  const [index, setIndex] = useState(0);
+  const images = [image1, image2, image3, image4];
 
-      {/* Block equation (centered, e.g., $$ \frac{a}{b} $$) */}
-      {/* <BlockMath math="\int_0^\infty x^2 dx" /> */}
+  const goToNext = () => {
+    setIndex((prev) => (prev + 1) % images.length);
+  };
+
+  useEffect(
+    function () {
+      const id = setInterval(() => {
+        goToNext();
+      }, 3000);
+      return () => clearInterval(id);
+    },
+    [index]
+  );
+
+  return (
+    <div
+      style={{
+        width: "600px",
+        height: "300px",
+        position: "relative",
+        margin: "auto",
+        overflow: "hidden",
+        borderRadius: "10px",
+      }}
+    >
+      <img
+        src={images[index]}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          transition: "transform 0.3s ease-in-out",
+        }}
+      />
     </div>
   );
 }

@@ -2,17 +2,39 @@ import styles from "./Header.module.css";
 import clsx from "clsx";
 import logo from "../../assets/images/logo.png";
 import profileImage from "../../assets/images/profile-pic.jpg";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { WindowSizeContext } from "./WindowSizeContext";
+import { DashboardContext } from "./DashboardContext";
 
 function Header({ children, logoStyle, middleChildrenStyle }) {
   const { windowWidth } = useContext(WindowSizeContext);
+  const { dispatch } = useContext(DashboardContext);
+  const menuIconRef = useRef(null);
+
+  // const handleMenu = () => {
+  //   dispatch({ type: "openMenu" });
+  // };
+
+  useEffect(
+    function () {
+      const handleMenuOpen = (e) => {
+        if (menuIconRef.current && menuIconRef.current === e.target)
+          dispatch({ type: "openMenu" });
+      };
+      document.addEventListener("click", handleMenuOpen);
+      return () => document.removeEventListener("click", handleMenuOpen);
+    },
+    [dispatch]
+  );
 
   return (
     <div className={clsx(styles.navbar)}>
       {windowWidth <= 500 && (
         <div className={clsx(styles.menuIcon)}>
           <svg
+            role="button"
+            ref={menuIconRef}
+            // onClick={handleMenu}
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
             viewBox="0 -960 960 960"

@@ -13,14 +13,16 @@ import CourseProgressCard from "./CourseProgressCard";
 import ProgressBar from "./ProgressBar";
 import { useContext } from "react";
 import { WindowSizeContext } from "./WindowSizeContext";
+import { DashboardContext } from "./DashboardContext";
 
 function Main() {
   const { windowWidth } = useContext(WindowSizeContext);
-
+  const { state } = useContext(DashboardContext);
   const mobileView = windowWidth <= 500;
 
   return (
     <div className={clsx(styles.main)}>
+      {mobileView && state.isMenuOpen && <div className={styles.dimPage}></div>}
       <div className={clsx(styles.left)}>
         {categories.map((category) => (
           <SideCategory

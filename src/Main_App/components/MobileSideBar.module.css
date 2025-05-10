@@ -1,0 +1,10 @@
+.mobileSideBar {
+  background-color: #ffffff;
+  border: 0.8px solid #f3f4f6;
+  width: 70%;
+  /* position: absolute; */
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+}

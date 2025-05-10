@@ -104,11 +104,12 @@ const elements = [
 function MobileFooter() {
   const location = useLocation();
   const pathname = location.pathname;
-  console.log(pathname);
+  // console.log(pathname);
   return (
     <div className={styles.mobileFooter}>
       {elements.map((element) => (
         <MobileFooterElement
+          key={element.text}
           svg={pathname === element.link ? element.svg[1] : element.svg[0]}
           text={element.text}
           link={element.link}

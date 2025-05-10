@@ -451,6 +451,17 @@ a {
 
 /* Mobile designview */
 @media (min-width: 361px) and (max-width: 414px) {
+  .dimPage {
+    background-color: black;
+    opacity: 0.5;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    pointer-events: none;
+  }
   .main {
     /* border: 1px solid red; */
     height: 235vh;

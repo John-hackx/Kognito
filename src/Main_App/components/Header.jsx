@@ -4,11 +4,11 @@ import logo from "../../assets/images/logo.png";
 import profileImage from "../../assets/images/profile-pic.jpg";
 import { useContext, useEffect, useRef } from "react";
 import { WindowSizeContext } from "./WindowSizeContext";
-import { DashboardContext } from "./DashboardContext";
+// import { DashboardContext } from "./DashboardContext";
 
-function Header({ children, logoStyle, middleChildrenStyle }) {
+function Header({ setIsMenuOpen, children, logoStyle, middleChildrenStyle }) {
   const { windowWidth } = useContext(WindowSizeContext);
-  const { dispatch } = useContext(DashboardContext);
+  // const { dispatch } = useContext(DashboardContext);
   const menuIconRef = useRef(null);
 
   // const handleMenu = () => {
@@ -19,12 +19,13 @@ function Header({ children, logoStyle, middleChildrenStyle }) {
     function () {
       const handleMenuOpen = (e) => {
         if (menuIconRef.current && menuIconRef.current === e.target)
-          dispatch({ type: "openMenu" });
+          // dispatch({ type: "openMenu" });
+          setIsMenuOpen(true);
       };
       document.addEventListener("click", handleMenuOpen);
       return () => document.removeEventListener("click", handleMenuOpen);
     },
-    [dispatch]
+    [setIsMenuOpen]
   );
 
   return (
@@ -32,7 +33,6 @@ function Header({ children, logoStyle, middleChildrenStyle }) {
       {windowWidth <= 500 && (
         <div className={clsx(styles.menuIcon)}>
           <svg
-            role="button"
             ref={menuIconRef}
             // onClick={handleMenu}
             xmlns="http://www.w3.org/2000/svg"

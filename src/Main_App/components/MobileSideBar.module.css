@@ -6,5 +6,48 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 999;
+  z-index: 2;
+}
+
+.sidebarTop {
+  height: 10vh;
+  border-bottom: 0.8px solid #f3f4f6;
+  display: flex;
+}
+
+.sidebarTopLeft {
+  flex: 0.2;
+  /* border: 1px solid red; */
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+.profilePicContainer {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  /* border: 1px solid black; */
+}
+.profilePicContainer img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.sidebarTopRight {
+  flex: 0.8;
+  flex-direction: column;
+  display: flex;
+  padding-left: 10px;
+  gap: 5px;
+  justify-content: center;
+  /* border: 1px solid blue; */
+}
+.sidebarTopRight h4 {
+  font-size: 16px;
+}
+.sidebarTopRight p {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
 }

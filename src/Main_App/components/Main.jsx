@@ -13,16 +13,16 @@ import CourseProgressCard from "./CourseProgressCard";
 import ProgressBar from "./ProgressBar";
 import { useContext } from "react";
 import { WindowSizeContext } from "./WindowSizeContext";
-import { DashboardContext } from "./DashboardContext";
+// import { DashboardContext } from "./DashboardContext";
 
-function Main() {
+function Main({ isMenuOpen }) {
   const { windowWidth } = useContext(WindowSizeContext);
-  const { state } = useContext(DashboardContext);
+  // const { dashboardState } = useContext(DashboardContext);
   const mobileView = windowWidth <= 500;
 
   return (
     <div className={clsx(styles.main)}>
-      {mobileView && state.isMenuOpen && <div className={styles.dimPage}></div>}
+      {mobileView && isMenuOpen && <div className={styles.dimPage}></div>}
       <div className={clsx(styles.left)}>
         {categories.map((category) => (
           <SideCategory
@@ -34,7 +34,10 @@ function Main() {
       </div>
       <div className={clsx(styles.right)}>
         {windowWidth <= 500 && (
-          <div className={clsx(styles.mobileViewSearch)}>
+          <div
+            style={{ zIndex: isMenuOpen && "-1" }}
+            className={clsx(styles.mobileViewSearch)}
+          >
             <svg
               fill="currentColor"
               height="20px"

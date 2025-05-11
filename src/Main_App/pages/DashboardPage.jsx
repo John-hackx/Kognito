@@ -1,5 +1,5 @@
 // import { Link } from "react-router-dom";
-import { useContext, useEffect, useReducer, useRef } from "react";
+import { useContext, useEffect, useReducer, useRef, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
@@ -14,21 +14,21 @@ const initialState = {
   isMenuOpen: false,
 };
 
-const reducer = (state, action) => {
+const reducer = (dashboardState, action) => {
   switch (action.type) {
     case "openMenu":
       console.log("opened");
 
       return {
-        ...state,
+        ...dashboardState,
         isMenuOpen: true,
       };
     case "closeMenu":
       console.log("closed");
 
       return {
-        ...state,
-        isMenuOpen: state.isMenuOpen ? false : "",
+        ...dashboardState,
+        isMenuOpen: dashboardState.isMenuOpen ? false : "",
       };
     default:
       throw new Error("unknown action dispatched");
@@ -36,8 +36,9 @@ const reducer = (state, action) => {
 };
 
 function DashboardPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { windowWidth } = useContext(WindowSizeContext);
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [dashboardState, dispatch] = useReducer(reducer, initialState);
   const sidebarRef = useRef(null);
   const mobileView = windowWidth <= 500;
 
@@ -45,15 +46,15 @@ function DashboardPage() {
     function () {
       const clickOutside = (e) => {
         if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
-          dispatch({ type: "closeMenu" });
-          // console.log("clicked outside");
+          // dispatch({ type: "closeMenu" });
+          setIsMenuOpen(false);
         }
       };
       document.addEventListener("click", clickOutside);
 
       return () => document.removeEventListener("click", clickOutside);
     },
-    [state.isMenuOpen]
+    [isMenuOpen]
   );
 
   const logoStyle = {
@@ -63,9 +64,13 @@ function DashboardPage() {
   // const footerStyles = { marginTop: "-100px" };
   return (
     <>
-      <DashboardContext.Provider value={{ state, dispatch }}>
-        {state.isMenuOpen && <MobileSideBar sidebarRef={sidebarRef} />}
-        <Header logoStyle={logoStyle}>
+      <DashboardContext.Provider value={{ dashboardState, dispatch }}>
+        {isMenuOpen && <MobileSideBar sidebarRef={sidebarRef} />}
+        <Header
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+          logoStyle={logoStyle}
+        >
           {windowWidth > 500 && (
             <>
               <div className={clsx(styles.activeStudents)}>
@@ -93,7 +98,7 @@ function DashboardPage() {
             </>
           )}
         </Header>
-        <Main />
+        <Main isMenuOpen={isMenuOpen} />
         {!mobileView ? <Footer /> : <MobileFooter />}
       </DashboardContext.Provider>
     </>

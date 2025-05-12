@@ -450,7 +450,7 @@ a {
 }
 
 /* Mobile designview */
-@media (min-width: 361px) and (max-width: 1080px) {
+@media (min-width: 360px) and (max-width: 1080px) {
   .dimPage {
     background-color: black;
     opacity: 0.5;

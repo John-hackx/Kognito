@@ -759,3 +759,9 @@ a {
     margin-top: 50px;
   }
 }
+
+@media (max-width: 360px) {
+  .main {
+    height: 245px;
+  }
+}

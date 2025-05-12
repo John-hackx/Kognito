@@ -18,7 +18,7 @@ import { WindowSizeContext } from "./WindowSizeContext";
 function Main({ isMenuOpen }) {
   const { windowWidth } = useContext(WindowSizeContext);
   // const { dashboardState } = useContext(DashboardContext);
-  const mobileView = windowWidth <= 1080;
+  const mobileView = windowWidth <= 500;
 
   return (
     <div className={clsx(styles.main)}>

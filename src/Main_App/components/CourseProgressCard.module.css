@@ -104,7 +104,7 @@
 }
 
 /* Mobile screen sizing */
-@media (min-width: 360px) and (max-width: 1080px) {
+@media (min-width: 360px) and (max-width: 500px) {
   .progressCard {
     padding: 0;
     /* height: 400px; */

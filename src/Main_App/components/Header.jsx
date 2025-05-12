@@ -11,7 +11,7 @@ function Header({ setIsMenuOpen, children, logoStyle, middleChildrenStyle }) {
   // const { dispatch } = useContext(DashboardContext);
   const menuIconRef = useRef(null);
 
-  const mobileView = windowWidth <= 1080;
+  const mobileView = windowWidth <= 500;
   // const handleMenu = () => {
   //   dispatch({ type: "openMenu" });
   // };

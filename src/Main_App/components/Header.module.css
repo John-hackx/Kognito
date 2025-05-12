@@ -92,7 +92,7 @@
 
 /* Responsive design mobile */
 
-@media (min-width: 360px) and (max-width: 1080px) {
+@media (min-width: 360px) and (max-width: 500px) {
   .navbar {
     /* border: 1px solid red; */
     height: 60px;

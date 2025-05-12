@@ -450,7 +450,7 @@ a {
 }
 
 /* Mobile designview */
-@media (min-width: 360px) and (max-width: 1080px) {
+@media (min-width: 360px) and (max-width: 500px) {
   .dimPage {
     background-color: black;
     opacity: 0.5;
@@ -486,7 +486,7 @@ a {
     display: flex;
     position: relative;
     margin-top: 5px;
-    width: 100%;
+    width: 94.5%;
     border-bottom: 0.7px solid #d9d9d9;
     padding-bottom: 20px;
   }
@@ -714,6 +714,13 @@ a {
 @media (min-width: 470px) and (max-width: 480px) {
   .upcomingClasses {
     margin-top: -150px;
+  }
+  .mobileViewSearch {
+    width: 95.5%;
+  }
+  .mobileViewSearch input {
+    width: 93%;
+    height: 40px;
   }
 }
 

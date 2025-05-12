@@ -762,6 +762,15 @@ a {
 
 @media (max-width: 360px) {
   .main {
-    height: 245px;
+    height: 265vh;
+  }
+  .recommendedCard {
+    height: 98%;
+  }
+  .mobileViewSearch {
+    width: 94%;
+  }
+  .mobileViewSearch input {
+    width: 88%;
   }
 }

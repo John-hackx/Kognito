@@ -41,6 +41,12 @@ function DashboardPage() {
   const [dashboardState, dispatch] = useReducer(reducer, initialState);
   const sidebarRef = useRef(null);
   const mobileView = windowWidth <= 1080;
+  useEffect(
+    function () {
+      alert(windowWidth);
+    },
+    [windowWidth]
+  );
 
   useEffect(
     function () {

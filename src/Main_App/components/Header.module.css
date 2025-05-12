@@ -135,6 +135,9 @@
     /* border: 1px solid green; */
     height: 50%;
   }
+  .menuIcon:hover {
+    cursor: pointer;
+  }
   .accountInfo {
     flex: 0.4;
   }

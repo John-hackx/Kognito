@@ -713,7 +713,7 @@ a {
 
 @media (min-width: 470px) and (max-width: 480px) {
   .upcomingClasses {
-    margin-top: -150px;
+    margin-top: -180px !important;
   }
   .mobileViewSearch {
     width: 95.5%;
@@ -727,6 +727,30 @@ a {
 @media (min-width: 370px) and (max-width: 372px) {
   .upcomingClasses {
     margin-top: -50px;
+  }
+  .mobileViewSearch input {
+    width: 93%;
+    height: 40px;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 393px) {
+  .upcomingClasses {
+    margin-top: -90px;
+  }
+  .mobileViewSearch input {
+    width: 93%;
+    height: 40px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 480px) {
+  .upcomingClasses {
+    margin-top: -120px;
+  }
+  .mobileViewSearch input {
+    width: 93%;
+    height: 40px;
   }
 }
 

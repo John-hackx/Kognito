@@ -40,7 +40,7 @@ function DashboardPage() {
   const { windowWidth } = useContext(WindowSizeContext);
   const [dashboardState, dispatch] = useReducer(reducer, initialState);
   const sidebarRef = useRef(null);
-  const mobileView = windowWidth <= 500;
+  const mobileView = windowWidth <= 1080;
 
   useEffect(
     function () {
@@ -71,7 +71,7 @@ function DashboardPage() {
           setIsMenuOpen={setIsMenuOpen}
           logoStyle={logoStyle}
         >
-          {windowWidth > 500 && (
+          {!mobileView && (
             <>
               <div className={clsx(styles.activeStudents)}>
                 <span></span>

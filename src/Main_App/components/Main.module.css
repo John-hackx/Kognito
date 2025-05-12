@@ -450,7 +450,7 @@ a {
 }
 
 /* Mobile designview */
-@media (min-width: 361px) and (max-width: 500px) {
+@media (min-width: 361px) and (max-width: 1080px) {
   .dimPage {
     background-color: black;
     opacity: 0.5;
@@ -486,7 +486,7 @@ a {
     display: flex;
     position: relative;
     margin-top: 5px;
-    width: 94%;
+    width: 100%;
     border-bottom: 0.7px solid #d9d9d9;
     padding-bottom: 20px;
   }
@@ -494,7 +494,7 @@ a {
     outline: none;
     /* border: 0.7px solid #d9d9d9; */
     background-color: #f3f4f6;
-    width: 84%;
+    width: 85%;
     height: 38px;
     border-radius: 20px;
     font-size: 15px;

@@ -11,6 +11,7 @@ function Header({ setIsMenuOpen, children, logoStyle, middleChildrenStyle }) {
   // const { dispatch } = useContext(DashboardContext);
   const menuIconRef = useRef(null);
 
+  const mobileView = windowWidth <= 1080;
   // const handleMenu = () => {
   //   dispatch({ type: "openMenu" });
   // };
@@ -30,7 +31,7 @@ function Header({ setIsMenuOpen, children, logoStyle, middleChildrenStyle }) {
 
   return (
     <div className={clsx(styles.navbar)}>
-      {windowWidth <= 500 && (
+      {mobileView && (
         <div className={clsx(styles.menuIcon)}>
           <svg
             ref={menuIconRef}

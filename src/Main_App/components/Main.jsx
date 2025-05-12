@@ -18,7 +18,7 @@ import { WindowSizeContext } from "./WindowSizeContext";
 function Main({ isMenuOpen }) {
   const { windowWidth } = useContext(WindowSizeContext);
   // const { dashboardState } = useContext(DashboardContext);
-  const mobileView = windowWidth <= 500;
+  const mobileView = windowWidth <= 1080;
 
   return (
     <div className={clsx(styles.main)}>
@@ -33,7 +33,7 @@ function Main({ isMenuOpen }) {
         ))}
       </div>
       <div className={clsx(styles.right)}>
-        {windowWidth <= 500 && (
+        {windowWidth <= 1080 && (
           <div
             style={{ zIndex: isMenuOpen && "-1" }}
             className={clsx(styles.mobileViewSearch)}

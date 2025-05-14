@@ -10,7 +10,7 @@
 
 const availableQuizzesRaw = [
   {
-    image: "/public/images/dataScience.jpg",
+    image: "/images/dataScience.jpg",
     title: "Physics",
     level: "Intermediate",
     time: "25",
@@ -292,7 +292,7 @@ const availableQuizzesRaw = [
     attempts: 100,
   },
   {
-    image: "/public/images/img2.jpg",
+    image: "/images/img2.jpg",
     title: "Chemistry",
     level: "Beginner",
     time: "30",
@@ -521,7 +521,7 @@ const availableQuizzesRaw = [
     attempts: 80,
   },
   {
-    image: "/public/images/img3.jpg",
+    image: "/images/img3.jpg",
     title: "Mathematics",
     level: "Advanced",
     time: "45",
@@ -791,7 +791,7 @@ const availableQuizzesRaw = [
     attempts: 120,
   },
   {
-    image: "/public/images/digitalMarketing.jpg",
+    image: "/images/digitalMarketing.jpg",
     title: "Basic Computing",
     level: "Beginner",
     time: "60",
@@ -1093,7 +1093,7 @@ const availableQuizzesRaw = [
     attempts: 90,
   },
   {
-    image: "/public/images/img3.jpg",
+    image: "/images/img3.jpg",
     title: "Mathematics",
     level: "Beginner",
     time: "45",
@@ -1345,7 +1345,7 @@ const availableQuizzesRaw = [
     attempts: 120,
   },
   {
-    image: "/public/images/img2.jpg",
+    image: "/images/img2.jpg",
     title: "Information Tech",
     level: "Advanced",
     time: "60",

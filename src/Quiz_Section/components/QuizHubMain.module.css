@@ -25,6 +25,7 @@
   border-radius: 13px;
   display: flex;
 }
+
 .heroLeft {
   flex: 0.6;
   padding: 20px;
@@ -110,18 +111,22 @@
   border: 0.8px solid #d9d9d9;
   margin-top: 40px;
   background-color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .quizInProgress h3 {
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 20px;
   /* border: 1px solid green; */
+}
+.quizInProgressSub {
+  height: 100%;
 }
 
 .quizInProgressCardContainer {
   /* border: 1px solid red; */
   height: 85%;
-  padding-left: 20px;
-  padding-right: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 160px 160px;
@@ -155,6 +160,10 @@
   border-radius: 13px;
   height: 343px;
 }
+.performanceHeader {
+  font-size: 20px;
+  padding: 20px;
+}
 
 .subMainMiddle {
   border: 0.8px solid #e6e5e5;
@@ -167,12 +176,16 @@
   font-size: 20px;
   padding: 20px;
 }
+.recommendedSub {
+  height: 100%;
+  /* width: 100%; */
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .recommendedCardsContainer {
   /* border: 1px solid red; */
-  height: 80%;
-  padding-left: 20px;
+  height: 75%;
   display: flex;
-  padding-right: 20px;
   gap: 20px;
 }
 .recommendedQuizCard {
@@ -278,4 +291,322 @@
   cursor: pointer;
   color: #0a7894;
   transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 360px) and (max-width: 500px) {
+  .main {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 150px;
+    height: 334vh;
+  }
+  .subMainTop {
+    flex-direction: column;
+  }
+  .hero {
+    flex-direction: column;
+    margin-top: -15.5vh;
+  }
+  .heroLeft {
+    padding: 15px;
+  }
+  .svgContainer {
+    width: 30px;
+    height: 30px;
+  }
+  .svgContainer svg {
+    width: 22px;
+    height: 22px;
+  }
+  .heroCardRight h4 {
+    font-size: 16px;
+  }
+  .quizInProgress {
+    margin-top: 20px;
+    height: 43vh;
+  }
+  .quizInProgress h3 {
+    font-size: 18px;
+  }
+  .quizInProgressCardContainer {
+    display: flex;
+    overflow-x: scroll;
+    height: 90%;
+  }
+
+  .left {
+    margin-top: -20px;
+  }
+  .weeklyPerformance {
+    margin-top: 20px;
+  }
+
+  .subMainMiddle {
+    margin-top: 66vh;
+    height: 165vh;
+    /* border: 1px solid red; */
+    margin-top: 105px;
+    padding-bottom: 10px;
+  }
+  .recommendedTitle {
+    font-size: 18px;
+    padding: 20px;
+  }
+  .recommendedCardsContainer {
+    height: 95%;
+
+    display: flex;
+    flex-direction: column;
+    /* overflow-x: scroll; */
+    gap: 20px;
+  }
+  .recommendedQuizCard {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .recommendedQuizCardTop {
+    flex: 0.5;
+    /* border: 1px solid green; */
+  }
+  .recommendedQuizCardBottom {
+    flex: 0.5;
+    /* border: 1px solid black; */
+    overflow-y: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .recommendedCardHeader {
+    margin-top: 10px;
+  }
+  .recommendedCourseTitle {
+    font-size: 16px;
+  }
+  .recommendedCourseLevel {
+    font-size: 11px;
+  }
+  .recommendedCardDescription {
+    margin-top: 10px;
+  }
+  .recommendedCardDescription svg .recommendedCourseTime {
+    font-size: 12px;
+  }
+  .recommendedQuizCardRating {
+    margin-top: 15px;
+  }
+  .recommendedQuizButton {
+    margin-top: 15px;
+  }
+
+  /* Scroll bar design */
+  .quizInProgressCardContainer {
+    /* width: 100%; */
+    max-height: 300px; /* adjust as needed */
+    overflow: auto;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: transparent transparent; /* Firefox */
+    transition: scrollbar-color 0.3s ease;
+  }
+
+  /* Show scrollbar only on hover or scroll */
+  .quizInProgressCardContainer:hover {
+    scrollbar-color: #888 #f1f1f1;
+  }
+
+  /* Chrome, Edge, Safari (WebKit browsers) */
+  .quizInProgressCardContainer::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .quizInProgressCardContainer::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .quizInProgressCardContainer::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  .quizInProgressCardContainer:hover::-webkit-scrollbar-thumb {
+    background-color: #888;
+  }
+
+  /* Hide scrollbar buttons (arrows) */
+  .quizInProgressCardContainer::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+
+  /* Scroll bar design */
+  .recommendedCardsContainer {
+    /* width: 100%; */
+    /* max-height: 300px; adjust as needed */
+    overflow: auto;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: transparent transparent; /* Firefox */
+    transition: scrollbar-color 0.3s ease;
+  }
+
+  /* Show scrollbar only on hover or scroll */
+  .recommendedCardsContainer:hover {
+    scrollbar-color: #888 #f1f1f1;
+  }
+
+  /* Chrome, Edge, Safari (WebKit browsers) */
+  .recommendedCardsContainer::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .recommendedCardsContainer::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .recommendedCardsContainer::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  .recommendedCardsContainer:hover::-webkit-scrollbar-thumb {
+    background-color: #888;
+  }
+
+  /* Hide scrollbar buttons (arrows) */
+  .recommendedCardsContainer::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 430px) {
+  .main {
+    height: 320vh;
+  }
+  .hero {
+    margin-top: -14vh;
+  }
+  .quizInProgress {
+    height: 40vh;
+  }
+  .left {
+    margin-top: -20px;
+  }
+  .weeklyPerformance {
+    margin-top: 20px;
+  }
+  .subMainMiddle {
+    margin-top: 60px;
+  }
+}
+
+@media (min-width: 440px) and (max-width: 480px) {
+  .main {
+    height: 180vh;
+  }
+  .hero {
+    margin-top: -12.5vh;
+  }
+  .quizInProgress {
+    height: 36vh;
+  }
+  .subMainMiddle {
+    margin-top: 55vh;
+    /* border: 1px solid red; */
+    height: 38vh;
+    width: 100%;
+  }
+
+  .recommendedCardsContainer {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 300px; /* Make every item 300px wide */
+    overflow-x: scroll;
+    height: 85%;
+    width: 100%;
+    gap: 1rem; /* Optional spacing between cards */
+  }
+  .recommendedQuizCard {
+    height: 96%;
+  }
+
+  .recommendedQuizCardBottom {
+    display: flex;
+    flex-direction: column;
+  }
+  .recommendedCardHeader {
+    flex: 0.3;
+  }
+}
+
+@media (min-width: 370px) and (max-width: 390px) {
+  .main {
+    height: 336vh;
+  }
+  .hero {
+    margin-top: -16.5vh;
+  }
+  .quizInProgress {
+    height: 45vh;
+  }
+
+  .left {
+    margin-top: -3vh;
+  }
+  .subMainMiddle {
+    margin-top: 15vh;
+  }
+}
+
+@media (max-width: 372px) {
+  .main {
+    height: 350vh;
+  }
+  .subMainMiddle {
+    margin-top: 15vh;
+    height: 170vh;
+  }
+}
+
+@media (max-width: 370px) {
+  .main {
+    height: 338vh;
+  }
+  .subMainMiddle {
+    margin-top: 17vh;
+  }
+}
+
+@media (max-width: 360px) {
+  .main {
+    height: 425vh;
+  }
+  .hero {
+    margin-top: -19.5vh;
+  }
+  .heroLeft {
+    padding: 15px;
+  }
+  .heroCard {
+    flex-direction: column;
+  }
+  .heroCardRight {
+    justify-content: center;
+    align-items: center;
+  }
+  .quizInProgress {
+    height: 55vh;
+  }
+  .left {
+    margin-top: -2vh;
+  }
+  .subMainMiddle {
+    margin-top: 17vh;
+    /* border: 1px solid red; */
+    height: 210vh;
+  }
 }

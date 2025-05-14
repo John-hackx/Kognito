@@ -47,3 +47,24 @@
   color: #374151;
   font-size: 15px;
 }
+
+@media (min-width: 360px) and (max-width: 500px) {
+  .quizhubTitle {
+    display: flex;
+    /* border: 1px solid red; */
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+  .quizhubTitle p {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #023350;
+  }
+  .quizhubTitle span {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #ff6a14;
+  }
+}

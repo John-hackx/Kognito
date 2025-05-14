@@ -2,6 +2,8 @@ import clsx from "clsx";
 // import dataScience from "../../assets/images/dataScience.jpg";
 import styles from "./QuizHubMain.module.css";
 import { useNavigate } from "react-router-dom";
+// import { useContext } from "react";
+import { WindowSizeContext } from "../../Main_App/components/WindowSizeContext";
 
 export function RecommendedQuizCard({
   quizCardImageStyles,
@@ -18,6 +20,8 @@ export function RecommendedQuizCard({
   attempts,
   id,
 }) {
+  // const { windowWidth } = useContext(WindowSizeContext);
+  // const mobileView = windowWidth <= 500;
   const navigate = useNavigate();
   const handleStartQuiz = (id) => {
     navigate(`/quizhub/quizzes/${id}`, { state: quiz });
@@ -62,6 +66,7 @@ export function RecommendedQuizCard({
             {numbOfQuestions} questions
           </p>
         </div>
+        {/* {!mobileView && ( */}
         <div className={styles.recommendedQuizCardRating}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,6 +80,7 @@ export function RecommendedQuizCard({
           <p className={clsx(styles.rating)}>{rating} (124)</p>
           <p className={clsx(styles.attempts)}>{attempts} attempts</p>
         </div>
+        {/* )} */}
         <button
           onClick={() => handleStartQuiz(id)}
           className={clsx(styles.recommendedQuizButton)}

@@ -11,16 +11,23 @@ import clsx from "clsx";
 import { RecommendedQuizCard } from "./RecommendedQuizCard";
 import { useContext } from "react";
 import { QuizzesContext } from "./QuizzesContext";
+import { WindowSizeContext } from "../../Main_App/components/WindowSizeContext";
 
 function QuizHubMain() {
   const { state } = useContext(QuizzesContext);
+  const { windowWidth } = useContext(WindowSizeContext);
+
+  const mobileView = windowWidth <= 500;
 
   // console.log(state);
   // console.log(dispatch);
   const topRightStyles = { paddingLeft: "10px", border: "0px solid red" };
   const barStyles = { width: "84%" };
   const progressTextStyles = { marginTop: "14px" };
-  const lessonsCompleteStyles = { width: "100%", border: "0px solid red" };
+  const lessonsCompleteStyles = {
+    width: `${mobileView ? "110%" : "100%"}`,
+    border: "0px solid red",
+  };
   return (
     <div className={styles.main}>
       <div className={styles.subMainTop}>
@@ -49,34 +56,38 @@ function QuizHubMain() {
                 Continue Learning
               </button>
             </div>
-            <div className={styles.heroRight}>
-              <img src={heroImage} alt="Hero" />
-            </div>
+            {!mobileView && (
+              <div className={styles.heroRight}>
+                <img src={heroImage} alt="Hero" />
+              </div>
+            )}
           </div>
           <div className={styles.quizInProgress}>
             <h3>Quizzes in Progress</h3>
-            <div className={styles.quizInProgressCardContainer}>
-              {QuizInProgress.map((item) => (
-                <CourseProgressCard
-                  key={item.courseName}
-                  level={item.level}
-                  topRightPtext="level"
-                  BtnText="Resume"
-                  lessonsCompleteStyles={lessonsCompleteStyles}
-                  progressTextStyles={progressTextStyles}
-                  barStyles={barStyles}
-                  topRightStyles={topRightStyles}
-                  courseName={item.courseName}
-                  instructor={item.level}
-                  progress={item.progress}
-                  image={item.image}
-                  lessonsCompleted={item.lessonsCompleted}
-                  lessonsTotal={item.lessonsTotal}
-                >
-                  {item.lessonsCompleted} of {item.lessonsTotal} questions
-                  answered
-                </CourseProgressCard>
-              ))}
+            <div className={styles.quizInProgressSub}>
+              <div className={styles.quizInProgressCardContainer}>
+                {QuizInProgress.map((item) => (
+                  <CourseProgressCard
+                    key={item.courseName}
+                    level={item.level}
+                    topRightPtext="level"
+                    BtnText="Resume"
+                    lessonsCompleteStyles={lessonsCompleteStyles}
+                    progressTextStyles={progressTextStyles}
+                    barStyles={barStyles}
+                    topRightStyles={topRightStyles}
+                    courseName={item.courseName}
+                    instructor={item.level}
+                    progress={item.progress}
+                    image={item.image}
+                    lessonsCompleted={item.lessonsCompleted}
+                    lessonsTotal={item.lessonsTotal}
+                  >
+                    {item.lessonsCompleted} of {item.lessonsTotal} questions
+                    answered
+                  </CourseProgressCard>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -85,34 +96,40 @@ function QuizHubMain() {
             <h3 className={clsx(styles.progressHeader)}>Your Progress</h3>
             <div className={styles.progressCircleContainer}></div>
           </div>
-          <div className={styles.weeklyPerformance}></div>
+          <div className={styles.weeklyPerformance}>
+            <h3 className={clsx(styles.performanceHeader)}>
+              Weekly Performance
+            </h3>
+          </div>
         </div>
       </div>
 
       <div className={styles.subMainMiddle}>
         <h3 className={clsx(styles.recommendedTitle)}>Recommended Quizzes</h3>
-        <div className={styles.recommendedCardsContainer}>
-          {shuffleArray(state.quizzes)
-            .slice(0, 4)
-            .map((item) => (
-              <RecommendedQuizCard
-                quiz={item}
-                key={item.id}
-                title={item.title}
-                image={item.image}
-                time={item.time}
-                questions={item.questions}
-                level={item.level}
-                levelStyles={item.levelStyles}
-                rating={item.rating}
-                attempts={item.attempts}
-                id={item.id}
-              />
-            ))}
-          {/* <RecommendedQuizCard />
+        <div className={styles.recommendedSub}>
+          <div className={styles.recommendedCardsContainer}>
+            {shuffleArray(state.quizzes)
+              .slice(0, 4)
+              .map((item) => (
+                <RecommendedQuizCard
+                  quiz={item}
+                  key={item.id}
+                  title={item.title}
+                  image={item.image}
+                  time={item.time}
+                  questions={item.questions}
+                  level={item.level}
+                  levelStyles={item.levelStyles}
+                  rating={item.rating}
+                  attempts={item.attempts}
+                  id={item.id}
+                />
+              ))}
+            {/* <RecommendedQuizCard />
           <RecommendedQuizCard />
           <RecommendedQuizCard />
           <RecommendedQuizCard /> */}
+          </div>
         </div>
       </div>
     </div>

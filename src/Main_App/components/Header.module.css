@@ -142,3 +142,9 @@
     flex: 0.4;
   }
 }
+
+@media (min-width: 510px) {
+  .bell span {
+    margin-top: -30px;
+  }
+}

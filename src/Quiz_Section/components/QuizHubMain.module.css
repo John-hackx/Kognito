@@ -610,3 +610,20 @@
     height: 210vh;
   }
 }
+
+/* samsung A15 */
+@media (min-width: 380px) and (max-width: 384px) {
+  .main {
+    height: 410vh;
+  }
+  .hero {
+    margin-top: -19vh;
+  }
+  .quizInProgress {
+    height: 53vh;
+  }
+  .subMainMiddle {
+    margin-top: 15vh;
+    height: 200vh;
+  }
+}

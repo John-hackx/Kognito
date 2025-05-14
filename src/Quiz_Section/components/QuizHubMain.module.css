@@ -572,12 +572,12 @@
   }
 }
 
-@media (max-width: 370px) {
+@media (min-width: 369px) and(max-width: 370px) {
   .main {
-    height: 338vh;
+    height: 330vh;
   }
   .subMainMiddle {
-    margin-top: 17vh;
+    margin-top: 12vh;
   }
 }
 

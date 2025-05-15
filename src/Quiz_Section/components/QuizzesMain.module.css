@@ -359,3 +359,9 @@
     width: 0;
   }
 }
+
+@media (max-width: 360px) {
+  .quizzesMain {
+    height: 275vh;
+  }
+}

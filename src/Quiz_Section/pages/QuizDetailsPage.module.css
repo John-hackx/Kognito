@@ -7,7 +7,7 @@
 }
 
 .quizDetailsMain {
-  background-color: #eef4ff;
+  /* background-color: #eef4ff; */
   flex: 0.85;
   padding-left: 100px;
   padding-right: 100px;
@@ -170,8 +170,9 @@
 @media (min-width: 360px) and (max-width: 399px) {
   /* Styles for standard phones */
   .quizDetailsPage {
-    padding-top: 10px;
-    height: 99vh;
+    /* padding-top: 10px; */
+    /* gap: 30px; */
+    height: 160vh;
   }
   .quizDetailsMain {
     width: 90.8vw;
@@ -181,11 +182,12 @@
     /* overflow-y: scroll; */
   }
   .subContainer {
+    height: 100%;
     flex-direction: column;
     gap: 10px;
     width: 100%;
     height: 90%;
-    margin-top: 5px;
+    margin-top: 10px;
   }
   .subContainerLeft {
     padding-left: 10px;
@@ -215,12 +217,13 @@
   }
   .quizDetailsFooter {
     height: 70px;
-    padding-left: 10px;
-    padding-right: 10px;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 30px;
     background-color: #ffffff;
   }
   .backBtn {

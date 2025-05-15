@@ -100,7 +100,7 @@
 
 @media (min-width: 360px) and (max-width: 500px) {
   .navbar {
-    /* border: 1px solid red; */
+    border-bottom: 1px solid #d9d9d9;
     height: 60px;
     border-bottom: none !important;
   }

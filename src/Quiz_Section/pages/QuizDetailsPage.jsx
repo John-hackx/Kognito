@@ -4,10 +4,14 @@ import { FinishQuizCard } from "./FinishQuiz";
 import { useContext } from "react";
 import { QuizzesContext } from "../components/QuizzesContext";
 import { useLocation } from "react-router-dom";
+import { WindowSizeContext } from "../../Main_App/components/WindowSizeContext";
 
 function QuizDetailsPage() {
   const { dispatch } = useContext(QuizzesContext);
+  const { windowWidth } = useContext(WindowSizeContext);
   const location = useLocation();
+
+  const mobileView = windowWidth <= 500;
 
   const handleStartQuiz = () => {
     dispatch({ type: "start", payload: location.state });
@@ -17,7 +21,10 @@ function QuizDetailsPage() {
   return (
     <div className={styles.quizDetailsPage}>
       <QuizDetailsMain />
-      <QuizDetailsFooter handleStartQuiz={handleStartQuiz} />
+      <QuizDetailsFooter
+        mobileView={mobileView}
+        handleStartQuiz={handleStartQuiz}
+      />
     </div>
   );
 }
@@ -31,7 +38,7 @@ function QuizDetailsMain() {
             Quiz Information
           </h3>
           <div className={styles.flashCardsContainer}>
-            <FinishQuizCard
+            <FlashCard
               value={30}
               svg={
                 <svg
@@ -48,7 +55,7 @@ function QuizDetailsMain() {
               cardText="Questions"
               svgBgColor="F3E8FF"
             />
-            <FinishQuizCard
+            <FlashCard
               svg={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +72,7 @@ function QuizDetailsMain() {
               bgColor="#f9fafb"
               svgBgColor="F3E8FF"
             />
-            <FinishQuizCard
+            <FlashCard
               svg={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -171,6 +178,21 @@ function QuizDetailsMain() {
   );
 }
 
+function FlashCard({ bgColor, svgBgColor, svg, cardText, value }) {
+  return (
+    <div style={{ backgroundColor: bgColor }} className={styles.finishQuizCard}>
+      <div
+        style={{ backgroundColor: svgBgColor }}
+        className={styles.finishQuizCardSvgContainer}
+      >
+        {svg}
+      </div>
+      <p className={clsx(styles.finishCardText)}>{cardText}</p>
+      <h3 className={clsx(styles.finishCardValue)}>{value}</h3>
+    </div>
+  );
+}
+
 function InstructionItem({ instructionText }) {
   return (
     <div className={styles.instructionItem}>
@@ -198,10 +220,12 @@ function DetailsItem({ svg, spanText, pText }) {
   );
 }
 
-function QuizDetailsFooter({ handleStartQuiz }) {
+function QuizDetailsFooter({ mobileView, handleStartQuiz }) {
   return (
     <div className={styles.quizDetailsFooter}>
-      <button className={clsx(styles.backBtn)}>Back to Quizzes</button>
+      <button className={clsx(styles.backBtn)}>{`${
+        mobileView ? "Back" : "Back to Quizzes"
+      }`}</button>
       <button onClick={handleStartQuiz} className={clsx(styles.startQuizBtn)}>
         Start Quiz
       </button>

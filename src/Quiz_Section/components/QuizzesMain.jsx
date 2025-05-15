@@ -6,6 +6,7 @@ import { RecommendedQuizCard } from "./RecommendedQuizCard";
 import { useContext } from "react";
 import { QuizzesContext } from "./QuizzesContext";
 import { WindowSizeContext } from "../../Main_App/components/WindowSizeContext";
+import { useNavigate } from "react-router-dom";
 // import { shuffleArray } from "../../assets/reuseable functions/shuffleArray";
 
 function QuizzesMain() {
@@ -144,7 +145,15 @@ function AvailableQuizCard({
   numbOfQuestions,
   rating,
   attempts,
+  quiz,
+  id,
 }) {
+  const navigate = useNavigate();
+  const handleStartQuiz = (id) => {
+    navigate(`/quizhub/quizzes/${id}`, { state: quiz });
+    // console.log(data);
+  };
+
   return (
     <div className={styles.availableCard}>
       <div className={styles.availableCardTop}>
@@ -189,7 +198,7 @@ function AvailableQuizCard({
           <p className={clsx(styles.quizAttempts)}>{attempts} attempts</p>
         </div>
         <div className={styles.cardButton}>
-          <button>Start Quiz</button>
+          <button onClick={() => handleStartQuiz(id)}>Start Quiz</button>
         </div>
       </div>
     </div>

@@ -3,10 +3,12 @@ import styles from "./QuizHubDashboard.module.css";
 import clsx from "clsx";
 import Header from "../../Main_App/components/Header";
 import { Link, NavLink } from "react-router-dom";
-import { useReducer, useEffect, useContext } from "react";
+import { useReducer, useEffect, useContext, useState, useRef } from "react";
 import { QuizzesContext } from "../components/QuizzesContext";
 import { availableQuizzes } from "../../assets/data/availableQuizData";
 import { WindowSizeContext } from "../../Main_App/components/WindowSizeContext";
+import { DashboardContext } from "../../Main_App/components/DashboardContext";
+import MobileSideBar from "../../Main_App/components/MobileSideBar";
 
 const initialState = {
   quizzes: [],
@@ -117,10 +119,13 @@ const reducer = (state, action) => {
 };
 
 function QuizHubDashboard() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
   const location = useLocation();
   const { id } = useParams();
   const { windowWidth } = useContext(WindowSizeContext);
+  const sidebarRef = useRef(null);
+  // const { dashboardState, dashboardDispatch } = useContext(DashboardContext);
 
   const mobileView = windowWidth <= 500;
 
@@ -174,6 +179,22 @@ function QuizHubDashboard() {
     dispatch({ type: "received", payload: availableQuizzes });
   }, []);
 
+  //close sidebar menu
+  useEffect(
+    function () {
+      const clickOutside = (e) => {
+        if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+          setIsMenuOpen(false);
+          // dashboardDispatch({ type: "closeMenu" });
+        }
+      };
+      document.addEventListener("click", clickOutside);
+
+      return () => document.removeEventListener("click", clickOutside);
+    },
+    [isMenuOpen]
+  );
+
   const middleChildrenStyle = { border: "none" };
   const logoStyle = {
     border: "none",
@@ -181,8 +202,16 @@ function QuizHubDashboard() {
   };
   return (
     <>
+      {isMenuOpen && (
+        <MobileSideBar setIsMenuOpen={setIsMenuOpen} sidebarRef={sidebarRef} />
+      )}
       {!isQuizReviewPage && (
-        <Header logoStyle={logoStyle} middleChildrenStyle={middleChildrenStyle}>
+        <Header
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+          logoStyle={logoStyle}
+          middleChildrenStyle={middleChildrenStyle}
+        >
           {!mobileView && (
             <Link to="/" className={styles.goBackLink}>
               <div className={styles.goBack}>
@@ -253,7 +282,7 @@ function QuizHubDashboard() {
           )}
         </Header>
       )}
-      <QuizzesContext.Provider value={{ state, dispatch }}>
+      <QuizzesContext.Provider value={{ state, dispatch, isMenuOpen }}>
         <Outlet />
       </QuizzesContext.Provider>
     </>

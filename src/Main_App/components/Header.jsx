@@ -4,11 +4,11 @@ import logo from "../../assets/images/logo.png";
 import profileImage from "../../assets/images/profile-pic.jpg";
 import { useContext, useEffect, useRef } from "react";
 import { WindowSizeContext } from "./WindowSizeContext";
-// import { DashboardContext } from "./DashboardContext";
+import { DashboardContext } from "./DashboardContext";
 
 function Header({ setIsMenuOpen, children, logoStyle, middleChildrenStyle }) {
   const { windowWidth } = useContext(WindowSizeContext);
-  // const { dispatch } = useContext(DashboardContext);
+  // const { dashboardDispatch } = useContext(DashboardContext);
   const menuIconRef = useRef(null);
 
   const mobileView = windowWidth <= 500;
@@ -20,8 +20,8 @@ function Header({ setIsMenuOpen, children, logoStyle, middleChildrenStyle }) {
     function () {
       const handleMenuOpen = (e) => {
         if (menuIconRef.current && menuIconRef.current === e.target)
-          // dispatch({ type: "openMenu" });
           setIsMenuOpen(true);
+        // dashboardDispatch({ type: "openMenu" });
       };
       document.addEventListener("click", handleMenuOpen);
       return () => document.removeEventListener("click", handleMenuOpen);

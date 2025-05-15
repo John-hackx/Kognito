@@ -13,7 +13,7 @@ import CourseProgressCard from "./CourseProgressCard";
 import ProgressBar from "./ProgressBar";
 import { useContext } from "react";
 import { WindowSizeContext } from "./WindowSizeContext";
-// import { DashboardContext } from "./DashboardContext";
+import { DashboardContext } from "./DashboardContext";
 
 function Main({ isMenuOpen }) {
   const { windowWidth } = useContext(WindowSizeContext);

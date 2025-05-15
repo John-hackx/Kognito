@@ -3,10 +3,19 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import progileImage from "/images/profile-pic.jpg";
 import { categories } from "../../assets/data/categoryDataMobile";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
-function MobileSideBar({ sidebarRef }) {
+function MobileSideBar({ sidebarRef, setIsMenuOpen }) {
   const [windowHeight, setWindowHeight] = useState(() => window.innerHeight);
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  console.log(pathname);
+
+  const closeSidebarMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   useEffect(function () {
     const windowHeight = window.innerHeight;
     setWindowHeight(windowHeight);
@@ -31,6 +40,8 @@ function MobileSideBar({ sidebarRef }) {
       <div className={styles.sidebarMiddle}>
         {categories.map((item) => (
           <SideBarItem
+            closeSidebarMenu={closeSidebarMenu}
+            pathname={pathname}
             key={item.text}
             svg={item.svg}
             text={item.text}
@@ -71,12 +82,17 @@ function MobileSideBar({ sidebarRef }) {
   );
 }
 
-function SideBarItem({ svg, text, link }) {
+function SideBarItem({ closeSidebarMenu, pathname, svg, text, link }) {
+  console.log(link);
+
   return (
-    <div className={clsx(styles.sidebarItem)}>
+    <div
+      onClick={closeSidebarMenu}
+      className={clsx(styles.sidebarItem, pathname === link && styles.active)}
+    >
       <NavLink
         to={link}
-        className={({ isActive }) => isActive && styles.active}
+        className={({ isActive }) => (isActive ? `${styles.active}` : "")}
       >
         {svg}
         <p>{text}</p>

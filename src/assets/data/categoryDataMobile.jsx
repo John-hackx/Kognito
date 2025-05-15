@@ -87,7 +87,7 @@ export const categories = [
       </svg>
     ),
     text: "Quiz Hub",
-    link: "quizhub",
+    link: "/quizhub/home",
   },
   {
     svg: (

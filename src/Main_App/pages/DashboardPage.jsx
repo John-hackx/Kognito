@@ -17,14 +17,14 @@ const initialState = {
 const reducer = (dashboardState, action) => {
   switch (action.type) {
     case "openMenu":
-      console.log("opened");
+      // console.log("opened");
 
       return {
         ...dashboardState,
         isMenuOpen: true,
       };
     case "closeMenu":
-      console.log("closed");
+      // console.log("closed");
 
       return {
         ...dashboardState,
@@ -38,7 +38,7 @@ const reducer = (dashboardState, action) => {
 function DashboardPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { windowWidth } = useContext(WindowSizeContext);
-  const [dashboardState, dispatch] = useReducer(reducer, initialState);
+  const [dashboardState, dashboardDispatch] = useReducer(reducer, initialState);
   const sidebarRef = useRef(null);
   const mobileView = windowWidth <= 500;
   // useEffect(
@@ -52,8 +52,8 @@ function DashboardPage() {
     function () {
       const clickOutside = (e) => {
         if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
-          // dispatch({ type: "closeMenu" });
           setIsMenuOpen(false);
+          // dashboardDispatch({ type: "closeMenu" });
         }
       };
       document.addEventListener("click", clickOutside);
@@ -70,7 +70,7 @@ function DashboardPage() {
   // const footerStyles = { marginTop: "-100px" };
   return (
     <>
-      <DashboardContext.Provider value={{ dashboardState, dispatch }}>
+      <DashboardContext.Provider value={{ dashboardState, dashboardDispatch }}>
         {isMenuOpen && <MobileSideBar sidebarRef={sidebarRef} />}
         <Header
           isMenuOpen={isMenuOpen}

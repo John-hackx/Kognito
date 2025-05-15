@@ -5,6 +5,7 @@
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 40px;
+  margin-top: 6vh;
 }
 
 .subMainTop {
@@ -294,6 +295,17 @@
 }
 
 @media (min-width: 360px) and (max-width: 500px) {
+  .dimPage {
+    background-color: black;
+    opacity: 0.5;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    pointer-events: none;
+  }
   .main {
     padding-left: 15px;
     padding-right: 15px;
@@ -583,7 +595,8 @@
 
 @media (max-width: 360px) {
   .main {
-    height: 425vh;
+    height: 410vh;
+    margin-top: 8vh;
   }
   .hero {
     margin-top: -19.5vh;
@@ -614,7 +627,7 @@
 /* samsung A15 */
 @media (min-width: 380px) and (max-width: 384px) {
   .main {
-    height: 410vh;
+    height: 450vh !important;
   }
   .hero {
     margin-top: -19vh;

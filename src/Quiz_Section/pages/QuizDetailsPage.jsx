@@ -15,7 +15,7 @@ function QuizDetailsPage() {
 
   const handleStartQuiz = () => {
     dispatch({ type: "start", payload: location.state });
-    // console.log(state);
+    console.log(location.state);
   };
 
   return (

@@ -1,9 +1,10 @@
 .takeQuizMain {
-  height: 88vh;
+  height: 90vh;
   background-image: url("/images/bkgImage.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-top: 10vh;
   /* border: 1px solid red; */
   /* position: relative; */
 }
@@ -491,6 +492,141 @@ input:hover {
   gap: 10px;
   flex-wrap: wrap;
   padding: 20px;
+}
+
+@media (max-width: 359px) {
+  /* Styles for small phones */
+}
+
+@media (min-width: 360px) and (max-width: 399px) {
+  /* Styles for standard phones */
+
+  .subMain {
+    width: 100%;
+    height: 100%;
+    gap: 0px;
+    /* border: 1px solid red; */
+  }
+  .subMainLeft {
+    flex: 1;
+    border-radius: 0px;
+    width: 100%;
+  }
+  .subMainRight {
+    display: none;
+  }
+  .quizBodyTop {
+    padding-left: 10px;
+    padding-right: 10px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: #f3f4f6;
+    height: 10vh;
+  }
+  .backIconSection {
+    display: none;
+  }
+  .titleSection {
+    flex: 1;
+  }
+  .titleSectionLeft {
+    /* border: 1px solid red; */
+    flex: 0.7;
+  }
+  .titleSectionRight {
+    /* border: 1px solid blue; */
+    justify-content: flex-end;
+  }
+  .quizTopRightCard svg {
+    width: 20px;
+    height: 20px;
+  }
+  .svgContainer {
+    width: 30px;
+    height: 30px;
+  }
+  .quizBodyMiddle {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10vh;
+  }
+  .question {
+    flex: 0.9;
+  }
+  .flagQuestion {
+    flex: 0.1;
+  }
+  .flagQuestion svg {
+    margin-top: 10px;
+    color: #434343;
+  }
+  .flagQuestion svg:hover {
+    cursor: pointer;
+    color: rgb(255, 170, 11);
+  }
+  .question p {
+    font-weight: 400;
+  }
+  .quizBoxMathsTopLeft {
+    /* border: 1px solid red; */
+    flex: 0.9;
+  }
+  .quizBoxMathsTopRight {
+    flex: 0.1;
+    /* border: 1px solid blue; */
+  }
+  .quizBoxMathsTopRight svg {
+    margin-top: 10px;
+    color: #434343;
+  }
+  .quizBoxMathsTopRight svg:hover {
+    cursor: pointer;
+    color: rgb(255, 170, 11);
+  }
+  .quizBodyBottom {
+    border: 1px solid red;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10vh;
+    display: flex;
+    background-color: #ffffff;
+  }
+  .quizBodyBottomLeft {
+    flex: 1;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .prevBtn {
+    flex: 0.1;
+    /* padding: 0; */
+    background: none;
+    border: 1px solid green;
+  }
+  .prevBtn svg {
+    color: #374151;
+  }
+  .allQuestions {
+    flex: 0.8;
+    border: 1px solid green;
+  }
+  .nextBtn {
+    flex: 0.1;
+  }
+  .nextBtn svg {
+    color: #374151;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 430px) {
+  /* Styles for large phones and compact phablets */
+}
+
+@media (min-width: 431px) and (max-width: 600px) {
+  /* Styles for phablets and small tablets */
 }
 
 /* scrollbar styles */

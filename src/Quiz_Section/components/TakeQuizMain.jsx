@@ -8,6 +8,7 @@ import BlockMath from "@matejmazur/react-katex";
 import { useContext, useEffect, useState } from "react";
 import { QuizzesContext } from "./QuizzesContext";
 import { numberToAlphabet } from "../../assets/reuseable functions/numberToAlphabet";
+import { WindowSizeContext } from "../../Main_App/components/WindowSizeContext";
 
 function TakeQuizMain() {
   const { state, dispatch } = useContext(QuizzesContext);
@@ -18,7 +19,8 @@ function TakeQuizMain() {
   const currentQuiz = state.quizzes.find((quiz) => id === quiz.id);
   const isMath = currentQuiz.title === "Mathematics";
   const hasAnswered = state.selectedAnswer;
-
+  const { windowWidth } = useContext(WindowSizeContext);
+  const mobileView = windowWidth <= 500;
   // handle functions;
   const handleFlagged = (e) => {
     setFlagged(e.target.checked);
@@ -138,26 +140,34 @@ function TakeQuizMain() {
                   </svg>
                 </div>
               </div>
+
               <div className={clsx(styles.titleSection)}>
                 <div className={styles.titleSectionLeft}>
                   <h4>{currentQuiz.title}</h4>
                   <div className={clsx(styles.levelAndNumbOfQuestions)}>
                     <p className={clsx(styles.level)}>{currentQuiz.level}</p>
-                    <span></span>
-                    <p className={clsx(styles.numbOfQuestions)}>
-                      {currentQuiz.questions.length} questions
-                    </p>
+                    {!mobileView && (
+                      <>
+                        <span></span>
+                        <p className={clsx(styles.numbOfQuestions)}>
+                          {currentQuiz.questions.length} questions
+                        </p>
+                      </>
+                    )}
                   </div>
                 </div>
                 <div className={styles.titleSectionRight}>
-                  <QuizTopRightCard
-                    svg={questionSvg}
-                    svgStyles={svgStylesQuestion}
-                  >
-                    <p className={clsx(styles.currentQuestion)}>
-                      Question {state.index + 1}/{currentQuiz.questions.length}
-                    </p>
-                  </QuizTopRightCard>
+                  {!mobileView && (
+                    <QuizTopRightCard
+                      svg={questionSvg}
+                      svgStyles={svgStylesQuestion}
+                    >
+                      <p className={clsx(styles.currentQuestion)}>
+                        Question {state.index + 1}/
+                        {currentQuiz.questions.length}
+                      </p>
+                    </QuizTopRightCard>
+                  )}
                   <QuizTopRightCard svg={timeSvg} svgStyles={svgStylesTime}>
                     <p className={clsx(styles.timeLeft)}>
                       {mins < 10 ? `0${mins}` : mins}:
@@ -168,15 +178,18 @@ function TakeQuizMain() {
               </div>
             </div>
             <div className={clsx(styles.quizBodyMiddle, styles.scrollable)}>
-              <ProgressBar
-                progressTextStyles={progressTextStyles}
-                progressBarContainerStyles={progressBarContainerStyles}
-                emptyProgressBarStyles={emptyProgressBarStyles}
-                progressBarStyles={progressBarStyles}
-                progress="80%"
-              />
+              {!mobileView && (
+                <ProgressBar
+                  progressTextStyles={progressTextStyles}
+                  progressBarContainerStyles={progressBarContainerStyles}
+                  emptyProgressBarStyles={emptyProgressBarStyles}
+                  progressBarStyles={progressBarStyles}
+                  progress="80%"
+                />
+              )}
               {isMath && (
                 <QuizBoxMaths
+                  mobileView={mobileView}
                   handleSelectedAnswer={handleSelectedAnswer}
                   currentQuiz={currentQuiz}
                   state={state}
@@ -184,6 +197,7 @@ function TakeQuizMain() {
               )}
               {!isMath && (
                 <QuizBox
+                  mobileView={mobileView}
                   handleFlagged={handleFlagged}
                   flagged={flagged}
                   handleSelectedAnswer={handleSelectedAnswer}
@@ -209,12 +223,13 @@ function TakeQuizMain() {
                     >
                       <path
                         d="M10.6502 14.6666L11.8335 13.4833L6.35016 7.99998L11.8335 2.51665L10.6502 1.33331L3.9835 7.99998L10.6502 14.6666Z"
-                        fill="white"
+                        fill="currentColor"
                       />
                     </svg>
                   </span>{" "}
-                  Previous
+                  {!mobileView && "Previous"}
                 </button>
+                {mobileView && <div className={styles.allQuestions}></div>}
                 {currentQuiz.questions.length === state.index + 1 ? (
                   <FinishQuizBtn
                     hasAnswered={hasAnswered}
@@ -226,7 +241,7 @@ function TakeQuizMain() {
                     disabled={!hasAnswered}
                     className={clsx(styles.nextBtn)}
                   >
-                    Next{" "}
+                    {!mobileView && "Next"}{" "}
                     <span>
                       <svg
                         width="16"
@@ -237,18 +252,20 @@ function TakeQuizMain() {
                       >
                         <path
                           d="M5.34984 14.6666L4.1665 13.4833L9.64984 7.99998L4.1665 2.51665L5.34984 1.33331L12.0165 7.99998L5.34984 14.6666Z"
-                          fill="white"
+                          fill="currentColor"
                         />
                       </svg>
                     </span>
                   </button>
                 )}
               </div>
-              <div className={styles.quizBodyBottomRight}>
-                {Array.from({ length: 10 }).map((_, index) => (
-                  <RoundQuestionNumber key={index} numb={index + 1} />
-                ))}
-              </div>
+              {!mobileView && (
+                <div className={styles.quizBodyBottomRight}>
+                  {Array.from({ length: 10 }).map((_, index) => (
+                    <RoundQuestionNumber key={index} numb={index + 1} />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
           <div className={styles.subMainRight}>
@@ -313,6 +330,7 @@ function QuizBox({
   state,
   flagged,
   handleFlagged,
+  mobileView,
 }) {
   return (
     <div className={styles.quizBox}>
@@ -322,10 +340,27 @@ function QuizBox({
           <p>{currentQuiz.questions[state.index].question}</p>
         </div>
         <div className={styles.flagQuestion}>
-          <label>
-            <input type="checkbox" onChange={handleFlagged} checked={flagged} />
-            <span>Flag for review</span>
-          </label>
+          {!mobileView && (
+            <label>
+              <input
+                type="checkbox"
+                onChange={handleFlagged}
+                checked={flagged}
+              />
+              <span>Flag for review</span>
+            </label>
+          )}
+          {mobileView && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="currentColor"
+            >
+              <path d="M200-120v-680h360l16 80h224v400H520l-16-80H280v280h-80Zm300-440Zm86 160h134v-240H510l-16-80H280v240h290l16 80Z" />
+            </svg>
+          )}
         </div>
       </div>
       <div className={styles.quizBoxBottom}>
@@ -344,7 +379,12 @@ function QuizBox({
   );
 }
 
-function QuizBoxMaths({ handleSelectedAnswer, currentQuiz, state }) {
+function QuizBoxMaths({
+  mobileView,
+  handleSelectedAnswer,
+  currentQuiz,
+  state,
+}) {
   return (
     <div className={styles.quizBox}>
       <div className={styles.quizBoxMathsTop}>
@@ -361,10 +401,23 @@ function QuizBoxMaths({ handleSelectedAnswer, currentQuiz, state }) {
           )}
         </div>
         <div className={clsx(styles.quizBoxMathsTopRight)}>
-          <label>
-            <input type="checkbox" />
-            <span>Flag for review</span>
-          </label>
+          {!mobileView && (
+            <label>
+              <input type="checkbox" />
+              <span>Flag for review</span>
+            </label>
+          )}
+          {mobileView && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="currentColor"
+            >
+              <path d="M200-120v-680h360l16 80h224v400H520l-16-80H280v280h-80Zm300-440Zm86 160h134v-240H510l-16-80H280v240h290l16 80Z" />
+            </svg>
+          )}
         </div>
       </div>
       <div className={styles.quizBoxBottom}>

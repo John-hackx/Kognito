@@ -21,7 +21,7 @@ import FinishQuiz from "./Quiz_Section/pages/FinishQuiz";
 import QuizReviewPage from "./Quiz_Section/pages/QuizReviewPage";
 import { WindowSizeContext } from "./Main_App/components/WindowSizeContext";
 import { useEffect, useState } from "react";
-
+import { ScrollToTop } from "./Main_App/components/ScrollToTop";
 function App() {
   const [windowWidth, setWindowWidth] = useState(() => window.innerWidth);
 
@@ -37,6 +37,7 @@ function App() {
   return (
     <WindowSizeContext.Provider value={{ windowWidth }}>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="courses" element={<CoursesPage />} />

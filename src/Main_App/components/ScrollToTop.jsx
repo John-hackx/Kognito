@@ -9,4 +9,16 @@ export const ScrollToTop = () => {
     },
     [pathname]
   );
+  return null;
+};
+
+export const ComponentScrollToTop = ({ scrollRef }) => {
+  const { pathname } = useLocation();
+  useEffect(
+    function () {
+      scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    },
+    [pathname, scrollRef]
+  );
+  return null;
 };

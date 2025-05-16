@@ -5,11 +5,12 @@ import { useParams } from "react-router-dom";
 // import MathRenderer from "../../Quiz_Section/components/MathRenderer";
 import InlineMath from "@matejmazur/react-katex";
 import BlockMath from "@matejmazur/react-katex";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { QuizzesContext } from "./QuizzesContext";
 import { numberToAlphabet } from "../../assets/reuseable functions/numberToAlphabet";
 import { WindowSizeContext } from "../../Main_App/components/WindowSizeContext";
 import { BackSvg, ForwardSvg } from "../../assets/data/svgHub";
+import { ComponentScrollToTop } from "../../Main_App/components/ScrollToTop";
 
 function TakeQuizMain() {
   const { state, dispatch } = useContext(QuizzesContext);
@@ -364,50 +365,54 @@ function QuizBox({
   handleFlagged,
   mobileView,
 }) {
+  const scrollRef = useRef(null);
   return (
-    <div className={styles.quizBox}>
-      <div className={styles.quizBoxTop}>
-        <div className={styles.question}>
-          <span>{state.index + 1}.</span>
-          <p>{currentQuiz.questions[state.index].question}</p>
+    <>
+      <ComponentScrollToTop scrollRef={scrollRef} />
+      <div ref={scrollRef} className={styles.quizBox}>
+        <div className={styles.quizBoxTop}>
+          <div className={styles.question}>
+            <span>{state.index + 1}.</span>
+            <p>{currentQuiz.questions[state.index].question}</p>
+          </div>
+          <div className={styles.flagQuestion}>
+            {!mobileView && (
+              <label>
+                <input
+                  type="checkbox"
+                  onChange={handleFlagged}
+                  checked={flagged}
+                />
+                <span>Flag for review</span>
+              </label>
+            )}
+            {mobileView && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="currentColor"
+              >
+                <path d="M200-120v-680h360l16 80h224v400H520l-16-80H280v280h-80Zm300-440Zm86 160h134v-240H510l-16-80H280v240h290l16 80Z" />
+              </svg>
+            )}
+          </div>
         </div>
-        <div className={styles.flagQuestion}>
-          {!mobileView && (
-            <label>
-              <input
-                type="checkbox"
-                onChange={handleFlagged}
-                checked={flagged}
-              />
-              <span>Flag for review</span>
-            </label>
-          )}
-          {mobileView && (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="currentColor"
-            >
-              <path d="M200-120v-680h360l16 80h224v400H520l-16-80H280v280h-80Zm300-440Zm86 160h134v-240H510l-16-80H280v240h290l16 80Z" />
-            </svg>
-          )}
+        <div className={styles.quizBoxBottom}>
+          {currentQuiz.questions[state.index].options.map((item, index) => (
+            <AnswerOption
+              state={state}
+              key={item}
+              handleSelectedAnswer={handleSelectedAnswer}
+              answer={item}
+              optionLetter={numberToAlphabet(index)}
+              optionText={item}
+            />
+          ))}
         </div>
       </div>
-      <div className={styles.quizBoxBottom}>
-        {currentQuiz.questions[state.index].options.map((item, index) => (
-          <AnswerOption
-            state={state}
-            key={item}
-            handleSelectedAnswer={handleSelectedAnswer}
-            answer={item}
-            optionLetter={numberToAlphabet(index)}
-            optionText={item}
-          />
-        ))}
-      </div>
-    </div>
+    </>
   );
 }
 
@@ -417,58 +422,62 @@ function QuizBoxMaths({
   currentQuiz,
   state,
 }) {
+  const scrollRef = useRef(null);
   return (
-    <div className={styles.quizBox}>
-      <div className={styles.quizBoxMathsTop}>
-        <div className={clsx(styles.quizBoxMathsTopLeft)}>
-          <p className={clsx(styles.mathQuestion)}>
-            {state.index + 1}. {currentQuiz.questions[state.index].question}
-          </p>
-          {currentQuiz.questions[state.index].isMath && (
-            <p className={clsx(styles.mathExpression)}>
-              <BlockMath
-                math={currentQuiz.questions[state.index].mathExpression}
-              />
+    <>
+      <ComponentScrollToTop scrollRef={scrollRef} />
+      <div ref={scrollRef} className={styles.quizBox}>
+        <div className={styles.quizBoxMathsTop}>
+          <div className={clsx(styles.quizBoxMathsTopLeft)}>
+            <p className={clsx(styles.mathQuestion)}>
+              {state.index + 1}. {currentQuiz.questions[state.index].question}
             </p>
-          )}
+            {currentQuiz.questions[state.index].isMath && (
+              <p className={clsx(styles.mathExpression)}>
+                <BlockMath
+                  math={currentQuiz.questions[state.index].mathExpression}
+                />
+              </p>
+            )}
+          </div>
+          <div className={clsx(styles.quizBoxMathsTopRight)}>
+            {!mobileView && (
+              <label>
+                <input type="checkbox" />
+                <span>Flag for review</span>
+              </label>
+            )}
+            {mobileView && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="currentColor"
+              >
+                <path d="M200-120v-680h360l16 80h224v400H520l-16-80H280v280h-80Zm300-440Zm86 160h134v-240H510l-16-80H280v240h290l16 80Z" />
+              </svg>
+            )}
+          </div>
         </div>
-        <div className={clsx(styles.quizBoxMathsTopRight)}>
-          {!mobileView && (
-            <label>
-              <input type="checkbox" />
-              <span>Flag for review</span>
-            </label>
-          )}
-          {mobileView && (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="currentColor"
-            >
-              <path d="M200-120v-680h360l16 80h224v400H520l-16-80H280v280h-80Zm300-440Zm86 160h134v-240H510l-16-80H280v240h290l16 80Z" />
-            </svg>
-          )}
-        </div>
-      </div>
-      <div className={styles.quizBoxBottom}>
-        {currentQuiz.questions[state.index].options.map((item, index) => (
-          <AnswerOptionMath
-            state={state}
-            key={item}
-            handleSelectedAnswer={handleSelectedAnswer}
-            answer={item}
-            optionLetter={numberToAlphabet(index)}
-            optionText={item}
-          />
-        ))}
-        {/* <AnswerOption />
+        <div className={styles.quizBoxBottom}>
+          {currentQuiz.questions[state.index].options.map((item, index) => (
+            <AnswerOptionMath
+              state={state}
+              key={item}
+              handleSelectedAnswer={handleSelectedAnswer}
+              answer={item}
+              optionLetter={numberToAlphabet(index)}
+              optionText={item}
+            />
+          ))}
+          {/* <AnswerOption />
         <AnswerOption />
         <AnswerOption />
         <AnswerOption /> */}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

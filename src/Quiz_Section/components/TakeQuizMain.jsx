@@ -9,6 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import { QuizzesContext } from "./QuizzesContext";
 import { numberToAlphabet } from "../../assets/reuseable functions/numberToAlphabet";
 import { WindowSizeContext } from "../../Main_App/components/WindowSizeContext";
+import { BackSvg, ForwardSvg } from "../../assets/data/svgHub";
 
 function TakeQuizMain() {
   const { state, dispatch } = useContext(QuizzesContext);
@@ -146,14 +147,11 @@ function TakeQuizMain() {
                   <h4>{currentQuiz.title}</h4>
                   <div className={clsx(styles.levelAndNumbOfQuestions)}>
                     <p className={clsx(styles.level)}>{currentQuiz.level}</p>
-                    {!mobileView && (
-                      <>
-                        <span></span>
-                        <p className={clsx(styles.numbOfQuestions)}>
-                          {currentQuiz.questions.length} questions
-                        </p>
-                      </>
-                    )}
+
+                    <span></span>
+                    <p className={clsx(styles.numbOfQuestions)}>
+                      {currentQuiz.questions.length} questions
+                    </p>
                   </div>
                 </div>
                 <div className={styles.titleSectionRight}>
@@ -208,40 +206,12 @@ function TakeQuizMain() {
             </div>
             <div className={clsx(styles.quizBodyBottom)}>
               <div className={styles.quizBodyBottomLeft}>
-                <button
-                  onClick={handlePreviousBtn}
-                  disabled={state.index === 0}
-                  className={clsx(styles.prevBtn)}
-                >
-                  <span>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.6502 14.6666L11.8335 13.4833L6.35016 7.99998L11.8335 2.51665L10.6502 1.33331L3.9835 7.99998L10.6502 14.6666Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </span>{" "}
-                  {!mobileView && "Previous"}
-                </button>
-                {mobileView && <div className={styles.allQuestions}></div>}
-                {currentQuiz.questions.length === state.index + 1 ? (
-                  <FinishQuizBtn
-                    hasAnswered={hasAnswered}
-                    handleFinishQuizBtn={handleFinishQuizBtn}
-                  />
-                ) : (
+                {!mobileView ? (
                   <button
-                    onClick={handleNextBtn}
-                    disabled={!hasAnswered}
-                    className={clsx(styles.nextBtn)}
+                    onClick={handlePreviousBtn}
+                    disabled={state.index === 0}
+                    className={clsx(styles.prevBtn)}
                   >
-                    {!mobileView && "Next"}{" "}
                     <span>
                       <svg
                         width="16"
@@ -251,12 +221,74 @@ function TakeQuizMain() {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M5.34984 14.6666L4.1665 13.4833L9.64984 7.99998L4.1665 2.51665L5.34984 1.33331L12.0165 7.99998L5.34984 14.6666Z"
-                          fill="currentColor"
+                          d="M10.6502 14.6666L11.8335 13.4833L6.35016 7.99998L11.8335 2.51665L10.6502 1.33331L3.9835 7.99998L10.6502 14.6666Z"
+                          fill="white"
                         />
                       </svg>
-                    </span>
+                    </span>{" "}
+                    Previous
                   </button>
+                ) : (
+                  <BackSvg
+                    classname={styles.mobilePrevious}
+                    handleOnClick={handlePreviousBtn}
+                    hasAnswered={hasAnswered}
+                    state={state}
+                  />
+                )}
+                {mobileView && (
+                  <div className={styles.allQuestions}>
+                    <div className={styles.subAllQuestions}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="20px"
+                        viewBox="0 -960 960 960"
+                        width="20px"
+                        fill="#434343"
+                      >
+                        <path d="M643-216 507-352l51-51 84 85 170-170 52 51-221 221Zm0-312L507-664l51-51 85 85 169-170 52 51-221 221ZM96-288v-72h336v72H96Zm0-312v-72h336v72H96Z" />
+                      </svg>
+                      <p>All Questions</p>
+                    </div>
+                  </div>
+                )}
+                {!mobileView &&
+                currentQuiz.questions.length === state.index + 1 ? (
+                  <FinishQuizBtn
+                    hasAnswered={hasAnswered}
+                    handleFinishQuizBtn={handleFinishQuizBtn}
+                  />
+                ) : (
+                  !mobileView && (
+                    <button
+                      onClick={handleNextBtn}
+                      disabled={!hasAnswered}
+                      className={clsx(styles.nextBtn)}
+                    >
+                      Next{" "}
+                      <span>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M5.34984 14.6666L4.1665 13.4833L9.64984 7.99998L4.1665 2.51665L5.34984 1.33331L12.0165 7.99998L5.34984 14.6666Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  )
+                )}
+                {mobileView && (
+                  <ForwardSvg
+                    handleOnClick={handleNextBtn}
+                    classname={styles.mobileNext}
+                    hasAnswered={hasAnswered}
+                  />
                 )}
               </div>
               {!mobileView && (

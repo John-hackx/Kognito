@@ -500,6 +500,13 @@ input:hover {
 
 @media (min-width: 360px) and (max-width: 399px) {
   /* Styles for standard phones */
+  .takeQuizMain {
+    /* background-color: #eef4ff; */
+    background: #174fb8;
+  }
+  .layer {
+    background: transparent;
+  }
 
   .subMain {
     width: 100%;
@@ -511,6 +518,7 @@ input:hover {
     flex: 1;
     border-radius: 0px;
     width: 100%;
+    background-color: rgba(255, 255, 255);
   }
   .subMainRight {
     display: none;
@@ -537,6 +545,7 @@ input:hover {
   .titleSectionRight {
     /* border: 1px solid blue; */
     justify-content: flex-end;
+    padding-right: 10px;
   }
   .quizTopRightCard svg {
     width: 20px;
@@ -585,7 +594,7 @@ input:hover {
     color: rgb(255, 170, 11);
   }
   .quizBodyBottom {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     position: fixed;
     bottom: 0;
     left: 0;
@@ -600,24 +609,53 @@ input:hover {
     padding-left: 20px;
     padding-right: 20px;
   }
-  .prevBtn {
+  .mobilePrevious {
     flex: 0.1;
-    /* padding: 0; */
-    background: none;
-    border: 1px solid green;
+    display: flex;
+    justify-content: flex-start;
   }
-  .prevBtn svg {
-    color: #374151;
-  }
+
   .allQuestions {
     flex: 0.8;
-    border: 1px solid green;
+    /* border: 1px solid red; */
+    height: 40px;
+    display: flex;
+    justify-content: center;
   }
-  .nextBtn {
+  .subAllQuestions {
+    height: 100%;
+    background-color: #f3f4f6;
+    border-radius: 20px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 15px;
+  }
+  .subAllQuestions:hover {
+    cursor: pointer;
+    background-color: #d9d9d9;
+  }
+
+  .mobileNext {
     flex: 0.1;
+    display: flex;
+    justify-content: flex-end;
   }
-  .nextBtn svg {
-    color: #374151;
+
+  .quizBox {
+    height: 110%;
+    padding-top: 5px;
+  }
+  .quizBoxTop {
+    flex: 0.4;
+  }
+  .quizBoxMathsTop {
+    flex: 0.4;
+  }
+  .quizBoxBottom {
+    flex: 0.6;
   }
 }
 

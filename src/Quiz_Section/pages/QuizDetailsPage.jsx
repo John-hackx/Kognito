@@ -20,7 +20,7 @@ function QuizDetailsPage() {
 
   return (
     <div className={styles.quizDetailsPage}>
-      <QuizDetailsMain />
+      <QuizDetailsMain mobileView={mobileView} />
       <QuizDetailsFooter
         mobileView={mobileView}
         handleStartQuiz={handleStartQuiz}
@@ -29,7 +29,7 @@ function QuizDetailsPage() {
   );
 }
 
-function QuizDetailsMain() {
+function QuizDetailsMain({ mobileView }) {
   return (
     <div className={styles.quizDetailsMain}>
       <div className={styles.subContainer}>
@@ -166,11 +166,13 @@ function QuizDetailsMain() {
                 "Avoid refreshing the page or navigating away during the quiz as this may result in loss of progress."
               }
             />
-            <InstructionItem
-              instructionText={
-                "Once you submit the quiz, you will immediately see your results and detailed feedback."
-              }
-            />
+            {mobileView && (
+              <InstructionItem
+                instructionText={
+                  "Once you submit the quiz, you will immediately see your results and detailed feedback."
+                }
+              />
+            )}
           </div>
         </div>
       </div>

@@ -590,7 +590,7 @@
 
 @media (max-width: 360px) {
   .main {
-    height: 410vh;
+    height: 430vh;
     margin-top: 8vh;
   }
   .hero {
@@ -613,7 +613,7 @@
     margin-top: -2vh;
   }
   .subMainMiddle {
-    margin-top: 3vh;
+    margin-top: 20vh;
 
     height: 210vh;
   }

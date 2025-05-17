@@ -176,7 +176,7 @@
     position: absolute;
     top: 6vh;
     width: 71.5vw;
-    height: 270vh;
+    height: 340vh;
   }
   .subMain {
     gap: 0;
@@ -191,16 +191,24 @@
     border: 0px;
     flex: 1;
     background: none;
+    /* border: 1px solid red; */
+    height: 95%;
+  }
+  .subMainRight h4 {
+    font-size: 20px;
   }
   .selectedFiltersContainer {
     display: none;
   }
   .availableQuizContainer {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid blue; */
     gap: 20px;
+    height: 95%;
   }
   .availableCard {
-    height: 40vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     border: 0.8px solid #d9d9d9;
@@ -362,6 +370,9 @@
 
 @media (max-width: 360px) {
   .quizzesMain {
-    height: 285vh;
+    height: 335vh;
+  }
+  .availableQuizContainer {
+    height: 100%;
   }
 }

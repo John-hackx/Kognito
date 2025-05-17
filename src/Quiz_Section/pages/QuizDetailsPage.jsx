@@ -3,13 +3,14 @@ import styles from "./QuizDetailsPage.module.css";
 import { FinishQuizCard } from "./FinishQuiz";
 import { useContext } from "react";
 import { QuizzesContext } from "../components/QuizzesContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { WindowSizeContext } from "../../Main_App/components/WindowSizeContext";
 
 function QuizDetailsPage() {
   const { dispatch } = useContext(QuizzesContext);
   const { windowWidth } = useContext(WindowSizeContext);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const mobileView = windowWidth <= 500;
 
@@ -18,12 +19,17 @@ function QuizDetailsPage() {
     console.log(location.state);
   };
 
+  const handleBackBtn = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={styles.quizDetailsPage}>
       <QuizDetailsMain mobileView={mobileView} />
       <QuizDetailsFooter
         mobileView={mobileView}
         handleStartQuiz={handleStartQuiz}
+        handleBackBtn={handleBackBtn}
       />
     </div>
   );
@@ -222,10 +228,10 @@ function DetailsItem({ svg, spanText, pText }) {
   );
 }
 
-function QuizDetailsFooter({ mobileView, handleStartQuiz }) {
+function QuizDetailsFooter({ handleBackBtn, mobileView, handleStartQuiz }) {
   return (
     <div className={styles.quizDetailsFooter}>
-      <button className={clsx(styles.backBtn)}>{`${
+      <button onClick={handleBackBtn} className={clsx(styles.backBtn)}>{`${
         mobileView ? "Back" : "Back to Quizzes"
       }`}</button>
       <button onClick={handleStartQuiz} className={clsx(styles.startQuizBtn)}>

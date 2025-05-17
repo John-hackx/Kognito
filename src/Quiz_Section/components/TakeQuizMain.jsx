@@ -13,8 +13,9 @@ import { BackSvg, ForwardSvg } from "../../assets/data/svgHub";
 import { ComponentScrollToTop } from "../../Main_App/components/ScrollToTop";
 
 function TakeQuizMain() {
-  const { state, dispatch } = useContext(QuizzesContext);
+  const { state, dispatch, isMenuOpen } = useContext(QuizzesContext);
   const [flagged, setFlagged] = useState(false);
+  const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false);
 
   // const navigate = useNavigate();
   const { id } = useParams();
@@ -24,6 +25,10 @@ function TakeQuizMain() {
   const { windowWidth } = useContext(WindowSizeContext);
   const mobileView = windowWidth <= 500;
   // handle functions;
+  const handleOpenQuestionModal = () => {
+    setIsQuestionModalOpen(true);
+  };
+
   const handleFlagged = (e) => {
     setFlagged(e.target.checked);
   };
@@ -123,8 +128,29 @@ function TakeQuizMain() {
     maxWidth: "97%",
   };
 
+  const colourKeys = [
+    {
+      text: "Current",
+      colour: "#535ae5",
+    },
+    {
+      text: "Answered",
+      colour: "#f3f4f6",
+    },
+    {
+      text: "Flagged",
+      colour: "#f59e26",
+    },
+    {
+      text: "Unanswered",
+      colour: "#e5e7eb",
+    },
+  ];
+
   return (
     <div className={styles.takeQuizMain}>
+      {isMenuOpen && <div className={styles.dimPage}></div>}
+      {isQuestionModalOpen && <div className={styles.dimPage}></div>}
       <div className={styles.layer}>
         <div className={styles.subMain}>
           <div className={styles.subMainLeft}>
@@ -177,6 +203,34 @@ function TakeQuizMain() {
               </div>
             </div>
             <div className={clsx(styles.quizBodyMiddle, styles.scrollable)}>
+              {mobileView && isQuestionModalOpen && (
+                <MobileQuestionsModal
+                  isQuestionModalOpen={isQuestionModalOpen}
+                  setIsQuestionModalOpen={setIsQuestionModalOpen}
+                >
+                  <div className={styles.modalMain}>
+                    {currentQuiz.questions.map((_, index) => (
+                      <BoxQuestionNumber key={index} numb={index + 1} />
+                    ))}
+                  </div>
+                  <div className={styles.modalColourKeys}>
+                    {colourKeys.map((item) => (
+                      <ColourKey text={item.text} colour={item.colour} />
+                    ))}
+                  </div>
+                  <div className={styles.modalFooter}>
+                    <button className={clsx(styles.saveProgressBtn)}>
+                      Save Progress
+                    </button>
+                    <button
+                      onClick={handleSubmitQuiz}
+                      className={clsx(styles.submitBtn)}
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </MobileQuestionsModal>
+              )}
               {!mobileView && (
                 <ProgressBar
                   progressTextStyles={progressTextStyles}
@@ -238,7 +292,10 @@ function TakeQuizMain() {
                   />
                 )}
                 {mobileView && (
-                  <div className={styles.allQuestions}>
+                  <div
+                    onClick={handleOpenQuestionModal}
+                    className={styles.allQuestions}
+                  >
                     <div className={styles.subAllQuestions}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -333,6 +390,44 @@ function TakeQuizMain() {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function MobileQuestionsModal({ children, setIsQuestionModalOpen }) {
+  return (
+    <div className={styles.mobileQuestionsModal}>
+      <div className={styles.modalHeader}>
+        <p>All Questions</p>
+        <svg
+          onClick={() => setIsQuestionModalOpen(false)}
+          xmlns="http://www.w3.org/2000/svg"
+          height="20px"
+          viewBox="0 -960 960 960"
+          width="20px"
+          fill="#434343"
+        >
+          <path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z" />
+        </svg>
+      </div>
+      <div className={styles.modalBody}>{children}</div>
+    </div>
+  );
+}
+
+function ColourKey({ colour, text }) {
+  return (
+    <div className={styles.colourKey}>
+      <span style={{ backgroundColor: colour }}></span>
+      <p>{text}</p>
+    </div>
+  );
+}
+
+function BoxQuestionNumber({ numb }) {
+  return (
+    <div className={styles.boxQuestionNumber}>
+      <p>{numb}</p>
     </div>
   );
 }

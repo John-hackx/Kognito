@@ -6,7 +6,13 @@ import { useContext, useEffect, useRef } from "react";
 import { WindowSizeContext } from "./WindowSizeContext";
 import { DashboardContext } from "./DashboardContext";
 
-function Header({ setIsMenuOpen, children, logoStyle, middleChildrenStyle }) {
+function Header({
+  quizIsActive,
+  setIsMenuOpen,
+  children,
+  logoStyle,
+  middleChildrenStyle,
+}) {
   const { windowWidth } = useContext(WindowSizeContext);
   // const { dashboardDispatch } = useContext(DashboardContext);
   const menuIconRef = useRef(null);
@@ -20,13 +26,15 @@ function Header({ setIsMenuOpen, children, logoStyle, middleChildrenStyle }) {
     function () {
       const handleMenuOpen = (e) => {
         if (menuIconRef.current && menuIconRef.current === e.target)
-          setIsMenuOpen(true);
+          !quizIsActive
+            ? setIsMenuOpen(true)
+            : alert("Not Allowed!! Quiz is ongoing!!");
         // dashboardDispatch({ type: "openMenu" });
       };
       document.addEventListener("click", handleMenuOpen);
       return () => document.removeEventListener("click", handleMenuOpen);
     },
-    [setIsMenuOpen]
+    [setIsMenuOpen, quizIsActive]
   );
 
   return (

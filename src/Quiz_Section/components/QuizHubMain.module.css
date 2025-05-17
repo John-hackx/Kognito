@@ -356,7 +356,6 @@
   .subMainMiddle {
     margin-top: 66vh;
     height: 165vh;
-    /* border: 1px solid red; */
     margin-top: 105px;
     padding-bottom: 10px;
   }
@@ -369,7 +368,7 @@
 
     display: flex;
     flex-direction: column;
-    /* overflow-x: scroll; */
+
     gap: 20px;
   }
   .recommendedQuizCard {
@@ -379,11 +378,10 @@
   }
   .recommendedQuizCardTop {
     flex: 0.5;
-    /* border: 1px solid green; */
   }
   .recommendedQuizCardBottom {
     flex: 0.5;
-    /* border: 1px solid black; */
+
     overflow-y: hidden;
     padding-left: 10px;
     padding-right: 10px;
@@ -412,11 +410,10 @@
 
   /* Scroll bar design */
   .quizInProgressCardContainer {
-    /* width: 100%; */
-    max-height: 300px; /* adjust as needed */
+    max-height: 300px;
     overflow: auto;
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: transparent transparent; /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
     transition: scrollbar-color 0.3s ease;
   }
 
@@ -454,8 +451,6 @@
 
   /* Scroll bar design */
   .recommendedCardsContainer {
-    /* width: 100%; */
-    /* max-height: 300px; adjust as needed */
     overflow: auto;
     scrollbar-width: thin; /* Firefox */
     scrollbar-color: transparent transparent; /* Firefox */
@@ -528,7 +523,7 @@
   }
   .subMainMiddle {
     margin-top: 55vh;
-    /* border: 1px solid red; */
+
     height: 38vh;
     width: 100%;
   }
@@ -536,11 +531,11 @@
   .recommendedCardsContainer {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 300px; /* Make every item 300px wide */
+    grid-auto-columns: 300px;
     overflow-x: scroll;
     height: 85%;
     width: 100%;
-    gap: 1rem; /* Optional spacing between cards */
+    gap: 1rem;
   }
   .recommendedQuizCard {
     height: 96%;
@@ -619,15 +614,14 @@
   }
   .subMainMiddle {
     margin-top: 3vh;
-    /* border: 1px solid red; */
+
     height: 210vh;
   }
 }
 
-/* samsung A15 */
-@media (min-width: 380px) and (max-width: 384px) {
+@media (min-width: 380px) and (max-height: 700px) {
   .main {
-    height: 450vh !important;
+    height: 415vh !important;
   }
   .hero {
     margin-top: -19vh;
@@ -636,7 +630,37 @@
     height: 53vh;
   }
   .subMainMiddle {
-    margin-top: 15vh;
+    margin-top: 18vh;
     height: 200vh;
   }
+}
+
+@media (min-width: 414px) and (max-height: 736px) {
+  .main {
+    height: 400vh !important;
+  }
+  .hero {
+    margin-top: -19vh;
+  }
+  .quizInProgress {
+    height: 53vh;
+  }
+  .subMainMiddle {
+    margin-top: 16vh;
+    height: 200vh;
+  }
+}
+
+@media (min-height: 481px) and (max-height: 640px) {
+}
+@media (min-height: 641px) and (max-height: 741px) {
+  .hero {
+    margin-top: -15vh;
+  }
+}
+@media (min-height: 742px) and (max-height: 842px) {
+}
+@media (min-height: 843px) and (max-height: 943px) {
+}
+@media (min-height: 944px) and (max-height: 1044px) {
 }

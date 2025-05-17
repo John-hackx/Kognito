@@ -207,6 +207,7 @@ function QuizHubDashboard() {
       )}
       {!isQuizReviewPage && (
         <Header
+          quizIsActive={state.status === "active"}
           isMenuOpen={isMenuOpen}
           setIsMenuOpen={setIsMenuOpen}
           logoStyle={logoStyle}

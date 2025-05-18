@@ -556,6 +556,10 @@
     margin-top: 20px;
     padding-bottom: 10px;
   }
+  .bottomPart {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 @media (min-width: 360px) and (max-width: 399px) {
@@ -587,7 +591,10 @@
   .pageContainer {
     width: 97vw;
     height: 350vh;
+    /* height: auto; */
+    /* border: 1px solid red; */
   }
+
   .main {
     /* border: 1px solid red; */
     width: 100%;
@@ -641,6 +648,14 @@
     margin: 0 auto;
     margin-top: 20px;
     padding-bottom: 10px;
+  }
+  .bottomPart {
+    padding-left: 10px;
+    padding-right: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
 
@@ -728,6 +743,10 @@
     margin-top: 20px;
     padding-bottom: 10px;
   }
+  .bottomPart {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 @media (min-width: 431px) and (max-width: 600px) {
@@ -813,5 +832,16 @@
     margin: 0 auto;
     margin-top: 20px;
     padding-bottom: 10px;
+  }
+  .bottomPart {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* solving height issues */
+@media (max-width: 360px) {
+  .pageContainer {
+    height: 320vh;
   }
 }

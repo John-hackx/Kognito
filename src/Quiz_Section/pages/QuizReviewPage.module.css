@@ -2,6 +2,12 @@
   height: 12vh;
   border-bottom: 0.8px solid #d9d9d9;
   display: flex;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 .headerLeft {
   flex: 0.5;
@@ -94,6 +100,7 @@
   display: flex;
   /* border: 1px solid black; */
   flex-direction: column;
+  margin-top: 10vh;
 }
 .mainHeader {
   flex: 0.06;
@@ -151,7 +158,7 @@
 }
 .mainBody {
   flex: 0.92;
-  /* border: 1px solid red; */
+  /* border: 1px solid blue; */
 }
 
 .mainBodySub {
@@ -463,4 +470,348 @@
 }
 .nextBtn:hover {
   cursor: pointer;
+}
+
+@media (max-width: 359px) {
+  /* Styles for small phones */
+  .header {
+    /* border: 1px solid red; */
+    width: 98dvw;
+  }
+  .headerLeft {
+    padding-left: 15px;
+    /* border: 1px solid green; */
+    flex: 0.5;
+  }
+
+  .headerTitle {
+    margin-left: 10px;
+    gap: 5px;
+  }
+  .headerTitle h2 {
+    font-size: 20px;
+  }
+  .headerRight {
+    flex: 0.5;
+    padding-right: 15px;
+  }
+  .bookLive {
+    width: 120px;
+  }
+  .pageContainer {
+    width: 97vw;
+    height: 350vh;
+  }
+  .main {
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-top: 12vh;
+  }
+  .mainHeader {
+    flex: 0.04;
+  }
+  .mainHeaderLeft {
+    padding-left: 20px;
+    flex: 0.4;
+  }
+  .mainHeaderRight {
+    padding-left: 10px;
+    padding-right: 0px;
+    text-align: center;
+    gap: 10px;
+    justify-content: flex-start;
+    display: flex;
+    flex: 0.6;
+  }
+  .mainBodySub {
+    width: 95%;
+  }
+  .answersBox {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .explanationContainer {
+    margin: 0 auto;
+    height: auto;
+  }
+  .explanationBody {
+    height: auto;
+    padding-bottom: 10px;
+    padding-right: 10px;
+  }
+  .keyPointsSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .incorrectOptionsSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+  .additionalResourcesSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 399px) {
+  /* Styles for standard phones */
+  .header {
+    /* border: 1px solid red; */
+    width: 98dvw;
+  }
+  .headerLeft {
+    padding-left: 15px;
+    /* border: 1px solid green; */
+    flex: 0.5;
+  }
+
+  .headerTitle {
+    margin-left: 10px;
+    gap: 5px;
+  }
+  .headerTitle h2 {
+    font-size: 20px;
+  }
+  .headerRight {
+    flex: 0.5;
+    padding-right: 15px;
+  }
+  .bookLive {
+    width: 120px;
+  }
+  .pageContainer {
+    width: 97vw;
+    height: 350vh;
+  }
+  .main {
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-top: 12vh;
+  }
+  .mainHeader {
+    flex: 0.04;
+  }
+  .mainHeaderLeft {
+    padding-left: 20px;
+    flex: 0.4;
+  }
+  .mainHeaderRight {
+    padding-left: 10px;
+    padding-right: 0px;
+    text-align: center;
+    gap: 10px;
+    justify-content: flex-start;
+    display: flex;
+    flex: 0.6;
+  }
+  .mainBodySub {
+    width: 95%;
+  }
+  .answersBox {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .explanationContainer {
+    margin: 0 auto;
+    height: auto;
+  }
+  .explanationBody {
+    height: auto;
+    padding-bottom: 10px;
+    padding-right: 10px;
+  }
+  .keyPointsSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .incorrectOptionsSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+  .additionalResourcesSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 430px) {
+  /* Styles for large phones and compact phablets */
+  .header {
+    /* border: 1px solid red; */
+    width: 98dvw;
+  }
+  .headerLeft {
+    padding-left: 15px;
+    /* border: 1px solid green; */
+    flex: 0.5;
+  }
+
+  .headerTitle {
+    margin-left: 10px;
+    gap: 5px;
+  }
+  .headerTitle h2 {
+    font-size: 20px;
+  }
+  .headerRight {
+    flex: 0.5;
+    padding-right: 15px;
+  }
+  .bookLive {
+    width: 120px;
+  }
+  .pageContainer {
+    width: 97vw;
+    height: 350vh;
+  }
+  .main {
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-top: 12vh;
+  }
+  .mainHeader {
+    flex: 0.04;
+  }
+  .mainHeaderLeft {
+    padding-left: 20px;
+    flex: 0.4;
+  }
+  .mainHeaderRight {
+    padding-left: 10px;
+    padding-right: 0px;
+    text-align: center;
+    gap: 10px;
+    justify-content: flex-start;
+    display: flex;
+    flex: 0.6;
+  }
+  .mainBodySub {
+    width: 95%;
+  }
+  .answersBox {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .explanationContainer {
+    margin: 0 auto;
+    height: auto;
+  }
+  .explanationBody {
+    height: auto;
+    padding-bottom: 10px;
+    padding-right: 10px;
+  }
+  .keyPointsSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .incorrectOptionsSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+  .additionalResourcesSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 431px) and (max-width: 600px) {
+  /* Styles for phablets and small tablets */
+  .header {
+    /* border: 1px solid red; */
+    width: 98dvw;
+  }
+  .headerLeft {
+    padding-left: 15px;
+    /* border: 1px solid green; */
+    flex: 0.5;
+  }
+
+  .headerTitle {
+    margin-left: 10px;
+    gap: 5px;
+  }
+  .headerTitle h2 {
+    font-size: 20px;
+  }
+  .headerRight {
+    flex: 0.5;
+    padding-right: 15px;
+  }
+  .bookLive {
+    width: 120px;
+  }
+  .pageContainer {
+    width: 97vw;
+    height: 350vh;
+  }
+  .main {
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-top: 12vh;
+  }
+  .mainHeader {
+    flex: 0.04;
+  }
+  .mainHeaderLeft {
+    padding-left: 20px;
+    flex: 0.4;
+  }
+  .mainHeaderRight {
+    padding-left: 10px;
+    padding-right: 0px;
+    text-align: center;
+    gap: 10px;
+    justify-content: flex-start;
+    display: flex;
+    flex: 0.6;
+  }
+  .mainBodySub {
+    width: 95%;
+  }
+  .answersBox {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .explanationContainer {
+    margin: 0 auto;
+    height: auto;
+  }
+  .explanationBody {
+    height: auto;
+    padding-bottom: 10px;
+    padding-right: 10px;
+  }
+  .keyPointsSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .incorrectOptionsSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+  .additionalResourcesSection {
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
 }

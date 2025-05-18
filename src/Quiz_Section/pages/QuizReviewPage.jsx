@@ -1,9 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./QuizReviewPage.module.css";
 import clsx from "clsx";
+import { useContext } from "react";
+import { WindowSizeContext } from "../../Main_App/components/WindowSizeContext";
 
 function QuizReviewPage() {
+  const { windowWidth } = useContext(WindowSizeContext);
   const navigate = useNavigate();
+
+  const mobileView = windowWidth <= 500;
 
   const handleBackToDashboard = () => {
     navigate("/quizhub/home");
@@ -26,27 +31,35 @@ function QuizReviewPage() {
           </svg>
           <div className={clsx(styles.headerTitle)}>
             <h2>Quiz Review</h2>
-            <p>Basic Computing - 20 Questions</p>
+            {!mobileView ? (
+              <p>Basic Computing - 20 Questions</p>
+            ) : (
+              <p>Basic Computing</p>
+            )}
           </div>
         </div>
         <div className={styles.headerRight}>
-          <div className={clsx(styles.completed)}>
-            <p>Completed</p>
-          </div>
-          <div className={styles.checkSvgContainer}>
-            <svg
-              width="38"
-              height="38"
-              viewBox="0 0 40 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.0833 28.75L7 20.7083L9.125 18.5417L15.0833 24.5L28.625 11L30.75 13.125L15.0833 28.75Z"
-                fill="white"
-              />
-            </svg>
-          </div>
+          {!mobileView && (
+            <>
+              <div className={clsx(styles.completed)}>
+                <p>Completed</p>
+              </div>
+              <div className={styles.checkSvgContainer}>
+                <svg
+                  width="38"
+                  height="38"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.0833 28.75L7 20.7083L9.125 18.5417L15.0833 24.5L28.625 11L30.75 13.125L15.0833 28.75Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </>
+          )}
           <div className={styles.bookLive}>
             <svg
               width="24"
@@ -60,7 +73,7 @@ function QuizReviewPage() {
                 fill="currentColor"
               />
             </svg>
-            <p>Book a Live Session</p>
+            {!mobileView ? <p>Book a Live Session</p> : <p>Book Live</p>}
           </div>
         </div>
       </nav>
@@ -69,8 +82,12 @@ function QuizReviewPage() {
           <div className={styles.mainHeader}>
             <div className={styles.mainHeaderLeft}>
               <QuizStats title={"Score"} description={"90/120"} />
-              <QuizStats title={"Accuracy"} description={"80%"} />
-              <QuizStats title={"Time Spent"} description={"12:45"} />
+              {!mobileView && (
+                <>
+                  <QuizStats title={"Accuracy"} description={"80%"} />
+                  <QuizStats title={"Time Spent"} description={"12:45"} />
+                </>
+              )}
             </div>
             <div className={styles.mainHeaderRight}>
               <CorrectIncorrect bgColor={"green"} text={"8 Correct"} />

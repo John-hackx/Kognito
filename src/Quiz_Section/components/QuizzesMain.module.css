@@ -376,3 +376,15 @@
     height: 100%;
   }
 }
+
+@media (max-width: 393px) and (min-width: 385px) {
+  .availableCard {
+    height: 55vh;
+  }
+  .availableQuizContainer {
+    height: 100%;
+  }
+  .quizzesMain {
+    height: 400vh;
+  }
+}

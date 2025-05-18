@@ -1,10 +1,11 @@
 .finishQuizContainer {
-  height: 88vh;
+  height: 89vh;
   background-size: cover;
   background-repeat: no-repeat;
   /* border: 1px solid red; */
   /* background-image: url("../../assets/images/bg 1.jpg"); */
   background-color: #eef4ff;
+  margin-top: 11vh;
 }
 .layer {
   /* position: absolute; */
@@ -172,4 +173,109 @@
 .backToHomeBtn span {
   position: absolute;
   left: 10px;
+}
+
+@media (max-width: 359px) {
+  /* Styles for small phones */
+  .finishQuizContainer {
+    height: 100vh;
+  }
+  .subContainer {
+    width: 90%;
+    height: 90%;
+    margin-top: 0;
+    margin-top: -3vh;
+  }
+  .finishCardButtons {
+    width: 90%;
+    margin-top: 20vh;
+  }
+  .viewSolutionsBtn {
+    padding: 0;
+  }
+  .tryAgainBtn {
+    padding: 0;
+  }
+  .backToHomeBtn {
+    padding: 0;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 399px) {
+  /* Styles for standard phones */
+
+  .finishQuizContainer {
+    height: 100vh;
+  }
+  .subContainer {
+    width: 90%;
+    height: 90%;
+    margin-top: 0;
+    margin-top: -3vh;
+  }
+  .finishCardButtons {
+    width: 90%;
+    margin-top: 20vh;
+  }
+  .viewSolutionsBtn {
+    padding: 0;
+  }
+  .tryAgainBtn {
+    padding: 0;
+  }
+  .backToHomeBtn {
+    padding: 0;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 430px) {
+  /* Styles for large phones and compact phablets */
+  .finishQuizContainer {
+    height: 100vh;
+  }
+  .subContainer {
+    width: 90%;
+    height: 90%;
+    margin-top: 0;
+    margin-top: -3vh;
+  }
+  .finishCardButtons {
+    width: 90%;
+    margin-top: 20vh;
+  }
+  .viewSolutionsBtn {
+    padding: 0;
+  }
+  .tryAgainBtn {
+    padding: 0;
+  }
+  .backToHomeBtn {
+    padding: 0;
+  }
+}
+
+@media (min-width: 431px) and (max-width: 600px) {
+  /* Styles for phablets and small tablets */
+  .finishQuizContainer {
+    height: 100vh;
+  }
+  .subContainer {
+    width: 90%;
+    height: 90%;
+    margin-top: 0;
+    margin-top: -3vh;
+  }
+  .finishCardButtons {
+    width: 90%;
+    margin-top: 20vh;
+  }
+  .viewSolutionsBtn {
+    padding: 0;
+  }
+  .tryAgainBtn {
+    padding: 0;
+  }
+  .backToHomeBtn {
+    padding: 0;
+  }
 }

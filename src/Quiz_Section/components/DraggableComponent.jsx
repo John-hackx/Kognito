@@ -49,7 +49,7 @@
 import React, { useState, useRef } from "react";
 
 export const DraggableComponent = ({ children }) => {
-  const [position, setPosition] = useState({ x: 70, y: 70 });
+  const [position, setPosition] = useState({ x: 320, y: 690 });
   const overlayRef = useRef(null);
   const startPos = useRef({ x: 0, y: 0 });
 
@@ -88,7 +88,7 @@ export const DraggableComponent = ({ children }) => {
         alignItems: "center",
         cursor: "grab",
         backgroundColor: "rgba(245 158 38)",
-        boxShadow: "0 0 10px rgba(245 158 38, 0.5)",
+        boxShadow: "0 0 10px rgba(245, 158, 38, 0.5)",
         zIndex: 9999,
         touchAction: "none", // prevent browser gestures
       }}

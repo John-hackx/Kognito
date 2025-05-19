@@ -77,8 +77,8 @@ export const DraggableComponent = ({ children }) => {
       onTouchMove={handleTouchMove}
       style={{
         position: "fixed",
-        top: `${position.y}vh`,
-        left: `${position.x}vw`,
+        top: position.y,
+        left: position.x,
         width: 70,
         height: 70,
         borderRadius: "50%",

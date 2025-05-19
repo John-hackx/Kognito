@@ -29,6 +29,7 @@ export const DraggableComponent = ({ children }) => {
         left: `${position.x}vw`,
         width: "70px",
         height: "70px",
+        touchAction: "none",
         backgroundColor: "orange",
         cursor: "grab",
         color: "white",

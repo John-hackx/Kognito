@@ -17,6 +17,7 @@ function TakeQuizMain() {
   const { state, dispatch, isMenuOpen } = useContext(QuizzesContext);
   const [flagged, setFlagged] = useState(false);
   const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false);
+  const [isFlaggedModalOpen, setIsFlaggedModalOpen] = useState(false);
 
   // const navigate = useNavigate();
   const { id } = useParams();
@@ -28,6 +29,10 @@ function TakeQuizMain() {
   // handle functions;
   const handleOpenQuestionModal = () => {
     setIsQuestionModalOpen(true);
+  };
+
+  const handleOpenFlaggedModal = () => {
+    setIsFlaggedModalOpen(true);
   };
 
   const handleFlagged = (e) => {
@@ -152,15 +157,19 @@ function TakeQuizMain() {
     <div className={styles.takeQuizMain}>
       {isMenuOpen && <div className={styles.dimPage}></div>}
       {isQuestionModalOpen && <div className={styles.dimPage}></div>}
-      {mobileView && <DraggableComponent><svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="currentColor"
-              >
-                <path d="M200-120v-680h360l16 80h224v400H520l-16-80H280v280h-80Zm300-440Zm86 160h134v-240H510l-16-80H280v240h290l16 80Z" />
-              </svg></DraggableComponent>}
+      {mobileView && (
+        <DraggableComponent onClickFunction={handleOpenFlaggedModal}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="currentColor"
+          >
+            <path d="M200-120v-680h360l16 80h224v400H520l-16-80H280v280h-80Zm300-440Zm86 160h134v-240H510l-16-80H280v240h290l16 80Z" />
+          </svg>
+        </DraggableComponent>
+      )}
       <div className={styles.layer}>
         <div className={styles.subMain}>
           <div className={styles.subMainLeft}>
@@ -216,6 +225,7 @@ function TakeQuizMain() {
               {mobileView && isQuestionModalOpen && (
                 <MobileQuestionsModal
                   isQuestionModalOpen={isQuestionModalOpen}
+                  isFlaggedModalOpen={isFlaggedModalOpen}
                   setIsQuestionModalOpen={setIsQuestionModalOpen}
                 >
                   <div className={styles.modalMain}>
@@ -239,6 +249,30 @@ function TakeQuizMain() {
                       Submit
                     </button>
                   </div>
+                </MobileQuestionsModal>
+              )}
+              {mobileView && isFlaggedModalOpen && (
+                <MobileQuestionsModal
+                  setIsFlaggedModalOpen={setIsFlaggedModalOpen}
+                  isQuestionModalOpen={isQuestionModalOpen}
+                  isFlaggedModalOpen={isFlaggedModalOpen}
+                >
+                  <p className={styles.flaggedQuestion}>
+                    What does it take to become an asshole? Is it good to be
+                    one?
+                  </p>
+                  <p className={styles.flaggedQuestion}>
+                    What does it take to become an asshole? Is it good to be
+                    one?
+                  </p>
+                  <p className={styles.flaggedQuestion}>
+                    What does it take to become an asshole? Is it good to be
+                    one?
+                  </p>
+                  <p className={styles.flaggedQuestion}>
+                    What does it take to become an asshole? Is it good to be
+                    one?
+                  </p>
                 </MobileQuestionsModal>
               )}
               {!mobileView && (
@@ -404,13 +438,22 @@ function TakeQuizMain() {
   );
 }
 
-function MobileQuestionsModal({ children, setIsQuestionModalOpen }) {
+function MobileQuestionsModal({
+  children,
+  setIsQuestionModalOpen,
+  setIsFlaggedModalOpen,
+  isQuestionModalOpen,
+}) {
   return (
     <div className={styles.mobileQuestionsModal}>
       <div className={styles.modalHeader}>
         <p>All Questions</p>
         <svg
-          onClick={() => setIsQuestionModalOpen(false)}
+          onClick={() => {
+            isQuestionModalOpen
+              ? setIsQuestionModalOpen(false)
+              : setIsFlaggedModalOpen(false);
+          }}
           xmlns="http://www.w3.org/2000/svg"
           height="20px"
           viewBox="0 -960 960 960"

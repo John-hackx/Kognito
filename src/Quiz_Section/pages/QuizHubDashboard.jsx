@@ -22,6 +22,7 @@ const initialState = {
   selectedAnswer: null,
   secondsRemaining: null,
   timeSpent: null,
+  loaderTime: 4,
   flaggedQuestions: [],
 };
 
@@ -32,6 +33,11 @@ const reducer = (state, action) => {
         ...state,
         quizzes: action.payload,
         status: "ready",
+      };
+    case "openLoader":
+      return {
+        ...state,
+        status: "loading",
       };
     case "start":
       // console.log(action.payload.questions);

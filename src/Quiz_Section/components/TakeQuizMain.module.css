@@ -697,6 +697,18 @@ input:hover {
     display: flex;
     flex-direction: column;
   }
+
+  /* hide scroll on modal body */
+  .modalBody {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+
+  .modalBody::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
   .modalMain {
     flex: 0.7;
 
@@ -758,6 +770,15 @@ input:hover {
     height: 90%;
 
     margin-top: 0;
+  }
+  .flaggedQuestion {
+    border: 0.8px solid #d9d9d9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .flaggedQuestion:nth-child(1) {
+    margin-top: 5px;
   }
 }
 
@@ -964,7 +985,20 @@ input:hover {
     flex: 0.9;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
   }
+
+  /* hide scroll on modalbody */
+  .modalBody {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+
+  .modalBody::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
   .modalMain {
     flex: 0.7;
 
@@ -1026,6 +1060,15 @@ input:hover {
     height: 90%;
 
     margin-top: 0;
+  }
+  .flaggedQuestion {
+    border: 0.8px solid #d9d9d9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .flaggedQuestion:nth-child(1) {
+    margin-top: 5px;
   }
 }
 
@@ -1233,6 +1276,18 @@ input:hover {
     display: flex;
     flex-direction: column;
   }
+
+  /* hide scroll on modal body */
+  .modalBody {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+
+  .modalBody::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
   .modalMain {
     flex: 0.7;
 
@@ -1294,6 +1349,15 @@ input:hover {
     height: 90%;
 
     margin-top: 0;
+  }
+  .flaggedQuestion {
+    border: 0.8px solid #d9d9d9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .flaggedQuestion:nth-child(1) {
+    margin-top: 5px;
   }
 }
 
@@ -1501,6 +1565,18 @@ input:hover {
     display: flex;
     flex-direction: column;
   }
+
+  /* hide scroll on modal body */
+  .modalBody {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+
+  .modalBody::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
   .modalMain {
     flex: 0.7;
 
@@ -1562,6 +1638,15 @@ input:hover {
     height: 90%;
 
     margin-top: 0;
+  }
+  .flaggedQuestion {
+    border: 0.8px solid #d9d9d9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .flaggedQuestion:nth-child(1) {
+    margin-top: 5px;
   }
 }
 

@@ -15,7 +15,7 @@ function QuizDetailsPage() {
   const mobileView = windowWidth <= 500;
 
   const handleStartQuiz = () => {
-    dispatch({ type: "start", payload: location.state });
+    dispatch({ type: "openLoader", payload: location.state });
     console.log(location.state);
   };
 

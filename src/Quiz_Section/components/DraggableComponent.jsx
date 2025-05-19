@@ -49,7 +49,7 @@
 import React, { useState, useRef } from "react";
 
 export const DraggableComponent = ({ children }) => {
-  const [position, setPosition] = useState({ x: 320, y: 690 });
+  const [position, setPosition] = useState({ x: 250, y: 450 });
   const overlayRef = useRef(null);
   const startPos = useRef({ x: 0, y: 0 });
 

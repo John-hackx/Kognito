@@ -11,6 +11,7 @@ import { numberToAlphabet } from "../../assets/reuseable functions/numberToAlpha
 import { WindowSizeContext } from "../../Main_App/components/WindowSizeContext";
 import { BackSvg, ForwardSvg } from "../../assets/data/svgHub";
 import { ComponentScrollToTop } from "../../Main_App/components/ScrollToTop";
+import { DraggableComponent } from "./DraggableComponent";
 
 function TakeQuizMain() {
   const { state, dispatch, isMenuOpen } = useContext(QuizzesContext);
@@ -151,6 +152,15 @@ function TakeQuizMain() {
     <div className={styles.takeQuizMain}>
       {isMenuOpen && <div className={styles.dimPage}></div>}
       {isQuestionModalOpen && <div className={styles.dimPage}></div>}
+      {mobileView && <DraggableComponent><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="currentColor"
+              >
+                <path d="M200-120v-680h360l16 80h224v400H520l-16-80H280v280h-80Zm300-440Zm86 160h134v-240H510l-16-80H280v240h290l16 80Z" />
+              </svg></DraggableComponent>}
       <div className={styles.layer}>
         <div className={styles.subMain}>
           <div className={styles.subMainLeft}>

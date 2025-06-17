@@ -22,6 +22,7 @@ import QuizReviewPage from "./Quiz_Section/pages/QuizReviewPage";
 import { WindowSizeContext } from "./Main_App/components/WindowSizeContext";
 import { useEffect, useState } from "react";
 import { ScrollToTop } from "./Main_App/components/ScrollToTop";
+import LandingPage from "./Main_App/pages/LandingPage";
 function App() {
   const [windowWidth, setWindowWidth] = useState(() => window.innerWidth);
 
@@ -39,12 +40,13 @@ function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<DashboardPage />} />
-          <Route path="courses" element={<CoursesPage />} />
-          <Route path="calendar" element={<CalenderPage />} />
-          <Route path="messages" element={<MessagesPage />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/app" element={<DashboardPage />} />
+          <Route path="/app/courses" element={<CoursesPage />} />
+          <Route path="/app/calendar" element={<CalenderPage />} />
+          <Route path="/app/messages" element={<MessagesPage />} />
 
-          <Route path="quizhub" element={<QuizHubDashboard />}>
+          <Route path="/app/quizhub" element={<QuizHubDashboard />}>
             <Route index element={<Navigate to="home" replace />} />
             <Route path="home" element={<QuizHubHome />} />
             <Route path="quizzes" element={<QuizzesPage />} />

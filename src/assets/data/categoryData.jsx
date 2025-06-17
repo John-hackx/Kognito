@@ -18,7 +18,7 @@ export const categories = [
           </svg>
         ),
         text: "Dashboard",
-        link: "/",
+        link: "/app",
       },
       {
         svg: (
@@ -36,7 +36,7 @@ export const categories = [
           </svg>
         ),
         text: "My Courses",
-        link: "/courses",
+        link: "/app/courses",
       },
       {
         svg: (
@@ -54,7 +54,7 @@ export const categories = [
           </svg>
         ),
         text: "Calendar",
-        link: "/calendar",
+        link: "/app/calendar",
       },
       {
         svg: (
@@ -72,7 +72,7 @@ export const categories = [
           </svg>
         ),
         text: "Messages",
-        link: "/messages",
+        link: "/app/messages",
       },
       {
         svg: (
@@ -90,7 +90,7 @@ export const categories = [
           </svg>
         ),
         text: "Quiz Hub",
-        link: "quizhub",
+        link: "/app/quizhub",
       },
       {
         svg: (
@@ -108,7 +108,7 @@ export const categories = [
           </svg>
         ),
         text: "Practice Test",
-        link: "/practicetest",
+        link: "/app/practicetest",
       },
     ],
   },
@@ -131,7 +131,7 @@ export const categories = [
           </svg>
         ),
         text: "Bookmarks",
-        link: "/bookmarks",
+        link: "/app/bookmarks",
       },
       {
         svg: (
@@ -149,7 +149,7 @@ export const categories = [
           </svg>
         ),
         text: "Certificates",
-        link: "/certificates",
+        link: "/app/certificates",
       },
       {
         svg: (
@@ -167,7 +167,7 @@ export const categories = [
           </svg>
         ),
         text: "Downloads",
-        link: "/downloads",
+        link: "/app/downloads",
       },
     ],
   },
@@ -190,7 +190,7 @@ export const categories = [
           </svg>
         ),
         text: "Account",
-        link: "/account",
+        link: "/app/account",
       },
       {
         svg: (
@@ -208,7 +208,7 @@ export const categories = [
           </svg>
         ),
         text: "Preferences",
-        link: "/preferences",
+        link: "/app/preferences",
       },
       {
         svg: (
@@ -226,7 +226,7 @@ export const categories = [
           </svg>
         ),
         text: "Help",
-        link: "/help",
+        link: "/app/help",
       },
     ],
   },

@@ -23,6 +23,7 @@ import { WindowSizeContext } from "./Main_App/components/WindowSizeContext";
 import { useEffect, useState } from "react";
 import { ScrollToTop } from "./Main_App/components/ScrollToTop";
 import LandingPage from "./Main_App/pages/LandingPage";
+import AuthContainer from "./Main_App/pages/AuthContainer";
 function App() {
   const [windowWidth, setWindowWidth] = useState(() => window.innerWidth);
 
@@ -41,6 +42,7 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/auth" element={<AuthContainer />} />
           <Route path="/app" element={<DashboardPage />} />
           <Route path="/app/courses" element={<CoursesPage />} />
           <Route path="/app/calendar" element={<CalenderPage />} />

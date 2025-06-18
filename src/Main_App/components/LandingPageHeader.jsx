@@ -1,6 +1,6 @@
 import styles from "./LandingPageHeader.module.css";
 import logo from "../../assets/images/logo2.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import { useContext, useState } from "react";
 import { WindowSizeContext } from "./WindowSizeContext";
@@ -8,6 +8,7 @@ import { WindowSizeContext } from "./WindowSizeContext";
 function LandingPageHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { windowWidth } = useContext(WindowSizeContext);
+  const navigate = useNavigate();
   const mobileView = windowWidth <= 500;
 
   const handleOpenMenu = () => {
@@ -66,10 +67,16 @@ function LandingPageHeader() {
               </li>
             </ul>
             <div className={clsx(styles.navbarBtnsContainerMobile)}>
-              <button className={clsx(styles.navbarSignInBtnSide)}>
+              <button
+                onClick={() => navigate("auth", { state: { isLogin: true } })}
+                className={clsx(styles.navbarSignInBtnSide)}
+              >
                 Log in
               </button>
-              <button className={clsx(styles.navbarSignUpBtnSide)}>
+              <button
+                onClick={() => navigate("auth", { state: { isLogin: false } })}
+                className={clsx(styles.navbarSignUpBtnSide)}
+              >
                 Sign up{" "}
                 <span>
                   <svg
@@ -116,8 +123,16 @@ function LandingPageHeader() {
           </svg>
         )}
         <div className={clsx(styles.navbarBtnsContainer)}>
-          <button className={clsx(styles.navbarSignInBtn)}>Log in</button>
-          <button className={clsx(styles.navbarSignUpBtn)}>
+          <button
+            onClick={() => navigate("auth", { state: { isLogin: true } })}
+            className={clsx(styles.navbarSignInBtn)}
+          >
+            Log in
+          </button>
+          <button
+            onClick={() => navigate("auth", { state: { isLogin: false } })}
+            className={clsx(styles.navbarSignUpBtn)}
+          >
             Get Started{" "}
             <span>
               <svg

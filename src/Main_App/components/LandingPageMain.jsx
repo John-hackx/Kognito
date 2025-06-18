@@ -22,6 +22,7 @@ import storyImage3big from "../../assets/images/story-3-big.jpg";
 import blogImage1 from "../../assets/images/blog-1-image.jpg";
 import blogImage2 from "../../assets/images/blog-2-image.jpg";
 import blogImage3 from "../../assets/images/blog-3-image.jpg";
+import { useNavigate } from "react-router-dom";
 
 const blogs = [
   {
@@ -363,9 +364,10 @@ const newCoursesSlides = [
 ];
 
 function LandingPageMain() {
+  const navigate = useNavigate();
   return (
     <div className={styles.main}>
-      <Hero trustedImages={trustedImages} />
+      <Hero navigate={navigate} trustedImages={trustedImages} />
       <AccreditationSection />
       <CategoriesSection />
       <AboutSection />
@@ -875,7 +877,7 @@ function AccreditationCard({ svg, title, description }) {
   );
 }
 
-function Hero({ trustedImages }) {
+function Hero({ trustedImages, navigate }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
     <div className={styles.hero}>
@@ -892,7 +894,10 @@ function Hero({ trustedImages }) {
               your own pace, from coding to creativity.
             </p>
             <div className={styles.heroBtns}>
-              <button className={clsx(styles.getStartedBtn)}>
+              <button
+                onClick={() => navigate("auth")}
+                className={clsx(styles.getStartedBtn)}
+              >
                 Join Us Now
               </button>
               <button className={clsx(styles.learnMoreBtn)}>
